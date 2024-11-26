@@ -10,7 +10,6 @@ import cv2
 #FOR THE TIME OSU MUST HAVE THE SETTING FULL SCREEN MODE ON
 #Next step is to make it so it skips taiko, mania, and ctb by looking at the icon instead of downloading the map and such
 
-
 def main(mapNumber):
     downloadNumberOfMaps = mapNumber
     downloadedMaps = 0
@@ -18,49 +17,29 @@ def main(mapNumber):
     while downloadedMaps < downloadNumberOfMaps:
         pixelColor = pyautogui.pixel(770, 1200)
         if pixelColor == (43, 45, 49):
+            iconStd = findIconWithNoBackGround()
             pyautogui.moveTo(435, 1115)
+            if iconStd is False:
+                print("test")
+                pyautogui.press('down')
+                continue
         else:
-            pyautogui.moveTo(430, 972)
             iconStd = findIconWithBackGround()
+            pyautogui.moveTo(430, 972)
+            if iconStd is False:
+                print("test")
+                pyautogui.press('down')
+                continue
+        time.sleep(2)
         pyautogui.leftClick()
         downloadBeatmapTracker()
         pyautogui.hotkey('ctrl', 'alt', 'tab')
-        time.sleep(2)
-        if downloadedMaps == 0:
-            pyautogui.press('right', presses=1)
-        else:
-            pyautogui.press('right')
-        pyautogui.moveTo(650,270)
-        pyautogui.press('space')
-        pyautogui.leftClick()
-        pyautogui.leftClick()
-        pyautogui.hotkey('ctrl', 'alt', 'tab')
-        pyautogui.press('left')
-        pyautogui.press('enter')
-        url = getURL()
-        if "mania" in url or "taiko" in url or "fruits" in url:
-            deleteBeatmap()
-        pyautogui.hotkey('ctrl', 'f4')
-        pyautogui.hotkey('ctrl', 'alt', 'tab')
-        pyautogui.press('right')
         pyautogui.press('enter')
         pyautogui.moveTo(430, 5)
         pyautogui.leftClick()
         pyautogui.press('up')
         pyautogui.press('down')
         downloadedMaps+=1
-
-def deleteBeatmap():
-    pyautogui.hotkey('ctrl', 'alt', 'tab')
-    pyautogui.press('space')
-    pydirectinput.moveTo(1500, 700)
-    pyautogui.rightClick()
-    pydirectinput.moveTo(1500, 500)
-    pyautogui.leftClick()
-    pydirectinput.moveTo(1500, 325)
-    pyautogui.leftClick()
-    pyautogui.hotkey('ctrl', 'alt', 'tab')
-    pyautogui.press('enter')
     
 def downloadBeatmapTracker():
     url = getURL()
@@ -77,21 +56,49 @@ def getURL():
     return url
 
 def findIconWithBackGround():
-    return False
-    
-if __name__ == "__main__": 
-    image = pyautogui.screenshot(region=(399, 953, 20, 20))
-    image.save(r"C:\Users\Scott\Documents\OsuCoding\status.png")
-    imageIcon = np.array(image)
-    imageIconGrey = cv2.cvtColor(imageIcon, cv2.COLOR_BGR2GRAY)
-    IconStdImage = cv2.imread("IconStd.png")
-    IconStdImageGrey = cv2.cvtColor(IconStdImage, cv2.COLOR_BGR2GRAY)
-    differenceRankedFromStatus, _ = ssim(imageIconGrey, IconStdImageGrey, full=True)
-    print(differenceRankedFromStatus)
-    #time.sleep(30)
-    pyautogui.PAUSE = 0.5
-    #main(112) #paramter set manually by user, have discord open, google tab open that isnt blank, osu with date added as caterogry and osu is muted
     #If the title and artist is 2 lines its region for icon is and have background (399, 953, 20, 20) Ex: Mero Meroido
     #If three lines (399, 931, 20, 20) Ex: Geometertu Dash menu
     #If one line (399, 975, 20, 20) Ex: My time
     #if four line (super rare) (399, 909, 20, 20) Ex: Spiderman
+    imageOneLine = pyautogui.screenshot(region=(399, 975, 20, 20))
+    imageIconOneLine = np.array(imageOneLine)
+    imageOneLine.save(r"C:\Users\Scott\Documents\OsuCoding\ImageOneLine.png")
+    imageIconOneLineGrey = cv2.cvtColor(imageIconOneLine, cv2.COLOR_BGR2GRAY)
+    imageTwoLine = pyautogui.screenshot(region=(399, 953, 20, 20))
+    imageIconTwoLine = np.array(imageTwoLine)
+    imageTwoLine.save(r"C:\Users\Scott\Documents\OsuCoding\ImageTwoLine.png")
+    imageIconTwoLineGrey = cv2.cvtColor(imageIconTwoLine, cv2.COLOR_BGR2GRAY)
+    imageThreeLine = pyautogui.screenshot(region=(399, 931, 20, 20))
+    imageIconThreeLine = np.array(imageThreeLine)
+    imageThreeLine.save(r"C:\Users\Scott\Documents\OsuCoding\ImageThreeLine.png")
+    imageIconThreeLineGrey = cv2.cvtColor(imageIconThreeLine, cv2.COLOR_BGR2GRAY)
+    imageFourLine = pyautogui.screenshot(region=(399, 909, 20, 20))
+    imageIconFourLine = np.array(imageFourLine)
+    imageFourLine.save(r"C:\Users\Scott\Documents\OsuCoding\ImageFourLine.png")
+    imageIconFourLineGrey = cv2.cvtColor(imageIconFourLine, cv2.COLOR_BGR2GRAY)
+    IconStdImage = cv2.imread("IconStd.png")
+    IconStdImageGrey = cv2.cvtColor(IconStdImage, cv2.COLOR_BGR2GRAY)
+    differenceRankedFromStatusOneLine, _ = ssim(imageIconOneLineGrey, IconStdImageGrey, full=True)
+    differenceRankedFromStatusTwoLine, _ = ssim(imageIconTwoLineGrey, IconStdImageGrey, full=True)
+    differenceRankedFromStatusThreeLine, _ = ssim(imageIconThreeLineGrey, IconStdImageGrey, full=True)
+    differenceRankedFromStatusFourLine, _ = ssim(imageIconFourLineGrey, IconStdImageGrey, full=True)
+    print(differenceRankedFromStatusOneLine)
+    print(differenceRankedFromStatusTwoLine)
+    print(differenceRankedFromStatusThreeLine)
+    print(differenceRankedFromStatusFourLine)
+    difference = max(differenceRankedFromStatusOneLine, differenceRankedFromStatusTwoLine,
+                     differenceRankedFromStatusThreeLine, differenceRankedFromStatusFourLine)
+    difference = int(difference * 100)
+    print(difference)
+    print("")
+    if difference > 90:
+        return True
+    return False
+    
+def findIconWithNoBackGround():
+    return True    
+    
+if __name__ == "__main__": 
+    time.sleep(5)
+    pyautogui.PAUSE = 0.4 #I know .5 works
+    main(153) #paramter set manually by user, have discord open, google tab open that isnt blank, osu with date added as caterogry and osu is muted
