@@ -62,35 +62,25 @@ def findIconWithBackGround():
     #if four line (super rare) (399, 909, 20, 20) Ex: Spiderman
     imageOneLine = pyautogui.screenshot(region=(399, 975, 20, 20))
     imageIconOneLine = np.array(imageOneLine)
-    imageOneLine.save(r"C:\Users\Scott\Documents\OsuCoding\ImageOneLine.png")
     imageIconOneLineGrey = cv2.cvtColor(imageIconOneLine, cv2.COLOR_BGR2GRAY)
     imageTwoLine = pyautogui.screenshot(region=(399, 953, 20, 20))
     imageIconTwoLine = np.array(imageTwoLine)
-    imageTwoLine.save(r"C:\Users\Scott\Documents\OsuCoding\ImageTwoLine.png")
     imageIconTwoLineGrey = cv2.cvtColor(imageIconTwoLine, cv2.COLOR_BGR2GRAY)
     imageThreeLine = pyautogui.screenshot(region=(399, 931, 20, 20))
     imageIconThreeLine = np.array(imageThreeLine)
-    imageThreeLine.save(r"C:\Users\Scott\Documents\OsuCoding\ImageThreeLine.png")
     imageIconThreeLineGrey = cv2.cvtColor(imageIconThreeLine, cv2.COLOR_BGR2GRAY)
     imageFourLine = pyautogui.screenshot(region=(399, 909, 20, 20))
     imageIconFourLine = np.array(imageFourLine)
-    imageFourLine.save(r"C:\Users\Scott\Documents\OsuCoding\ImageFourLine.png")
     imageIconFourLineGrey = cv2.cvtColor(imageIconFourLine, cv2.COLOR_BGR2GRAY)
-    IconStdImage = cv2.imread("IconStd.png")
+    IconStdImage = cv2.imread("\Images\IconStd.png")
     IconStdImageGrey = cv2.cvtColor(IconStdImage, cv2.COLOR_BGR2GRAY)
     differenceRankedFromStatusOneLine, _ = ssim(imageIconOneLineGrey, IconStdImageGrey, full=True)
     differenceRankedFromStatusTwoLine, _ = ssim(imageIconTwoLineGrey, IconStdImageGrey, full=True)
     differenceRankedFromStatusThreeLine, _ = ssim(imageIconThreeLineGrey, IconStdImageGrey, full=True)
     differenceRankedFromStatusFourLine, _ = ssim(imageIconFourLineGrey, IconStdImageGrey, full=True)
-    print(differenceRankedFromStatusOneLine)
-    print(differenceRankedFromStatusTwoLine)
-    print(differenceRankedFromStatusThreeLine)
-    print(differenceRankedFromStatusFourLine)
     difference = max(differenceRankedFromStatusOneLine, differenceRankedFromStatusTwoLine,
                      differenceRankedFromStatusThreeLine, differenceRankedFromStatusFourLine)
     difference = int(difference * 100)
-    print(difference)
-    print("")
     if difference > 90:
         return True
     return False
@@ -100,5 +90,5 @@ def findIconWithNoBackGround():
     
 if __name__ == "__main__": 
     time.sleep(5)
-    pyautogui.PAUSE = 0.4 #I know .5 works
+    pyautogui.PAUSE = 0.5 #I know .5 works should test .4 
     main(153) #paramter set manually by user, have discord open, google tab open that isnt blank, osu with date added as caterogry and osu is muted

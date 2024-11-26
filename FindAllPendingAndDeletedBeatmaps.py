@@ -9,11 +9,11 @@ import time
 
 def main(numberOfMapsToProcess):
     time.sleep(3) #Time for me to put cursour on osu
-    rankedImage = cv2.imread("Ranked.png")
-    lovedImage = cv2.imread("Loved.png")
-    pendingImage = cv2.imread("Pending.png")
-    removedImage = cv2.imread("Removed.png")
-    qualifiedImage = cv2.imread("Qualified.png")
+    rankedImage = cv2.imread("\Images\Ranked.png")
+    lovedImage = cv2.imread("\Images\Loved.png")
+    pendingImage = cv2.imread("\Images\Pending.png")
+    removedImage = cv2.imread("\Images\Removed.png")
+    qualifiedImage = cv2.imread("\Images\Qualified.png")
     rankedImageGray = cv2.cvtColor(rankedImage, cv2.COLOR_BGR2GRAY)
     lovedImageGray = cv2.cvtColor(lovedImage, cv2.COLOR_BGR2GRAY)
     pendingImageGray = cv2.cvtColor(pendingImage, cv2.COLOR_BGR2GRAY)
