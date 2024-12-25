@@ -8,7 +8,12 @@ import cv2
 
 #Any moveTo cords are specifically used for my montior resolution which is 2560 x 1440
 #FOR THE TIME OSU MUST HAVE THE SETTING FULL SCREEN MODE ON
-#Next step is to make it so it skips taiko, mania, and ctb by looking at the icon instead of downloading the map and such
+#Last Ran on Date: 12/24/2024
+#Next step: Make it so the program knows if the beatmap was unable to load and skip beatmap if so
+#Find the icon placements for msgs that contain no beatmap backgroud
+#Make it skip any map I changed the status of
+#Maybe: Try to save time by making a beatmap not get downloaded twice
+#Make it skip beatmap i nomiated
 
 def main(mapNumber):
     downloadNumberOfMaps = mapNumber
@@ -20,14 +25,12 @@ def main(mapNumber):
             iconStd = findIconWithNoBackGround()
             pyautogui.moveTo(435, 1115)
             if iconStd is False:
-                print("test")
                 pyautogui.press('down')
                 continue
         else:
             iconStd = findIconWithBackGround()
             pyautogui.moveTo(430, 972)
             if iconStd is False:
-                print("test")
                 pyautogui.press('down')
                 continue
         time.sleep(2)
@@ -60,6 +63,7 @@ def findIconWithBackGround():
     #If three lines (399, 931, 20, 20) Ex: Geometertu Dash menu
     #If one line (399, 975, 20, 20) Ex: My time
     #if four line (super rare) (399, 909, 20, 20) Ex: Spiderman
+    #if five line (I have now only seen it once)) () Ex: Bike Chase
     imageOneLine = pyautogui.screenshot(region=(399, 975, 20, 20))
     imageIconOneLine = np.array(imageOneLine)
     imageIconOneLineGrey = cv2.cvtColor(imageIconOneLine, cv2.COLOR_BGR2GRAY)
@@ -72,7 +76,7 @@ def findIconWithBackGround():
     imageFourLine = pyautogui.screenshot(region=(399, 909, 20, 20))
     imageIconFourLine = np.array(imageFourLine)
     imageIconFourLineGrey = cv2.cvtColor(imageIconFourLine, cv2.COLOR_BGR2GRAY)
-    IconStdImage = cv2.imread("\Images\IconStd.png")
+    IconStdImage = cv2.imread("Images\IconStd.png")
     IconStdImageGrey = cv2.cvtColor(IconStdImage, cv2.COLOR_BGR2GRAY)
     differenceRankedFromStatusOneLine, _ = ssim(imageIconOneLineGrey, IconStdImageGrey, full=True)
     differenceRankedFromStatusTwoLine, _ = ssim(imageIconTwoLineGrey, IconStdImageGrey, full=True)
@@ -89,6 +93,6 @@ def findIconWithNoBackGround():
     return True    
     
 if __name__ == "__main__": 
-    time.sleep(5)
+    time.sleep(30)
     pyautogui.PAUSE = 0.5 #I know .5 works should test .4 
-    main(153) #paramter set manually by user, have discord open, google tab open that isnt blank, osu with date added as caterogry and osu is muted
+    main(272) #paramter set manually by user, have discord open, google tab open that isnt blank, osu with date added as caterogry and osu is muted

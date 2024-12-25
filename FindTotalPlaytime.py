@@ -1,7 +1,6 @@
-from bs4 import BeautifulSoup
-import requests
-url = "https://osu.ppy.sh/beatmapsets/2162554#osu/4746232"
-stuff = requests.get(url)
-soup = BeautifulSoup(stuff.content, "html5lib")
-with open("testFile.txt", "w", encoding="utf-8") as file:
-    file.write(str(soup))
+from osu import Client
+
+client_id = 29661
+client_secret = "CwzqipNRs7axuZ0C43PwEFzpe4BD3g5tyyiVqlTA"
+redirect_url = "http://127.0.0.1:8080"
+client = Client.from_credentials(client_id, client_secret, redirect_url)
