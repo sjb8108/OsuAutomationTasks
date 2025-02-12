@@ -8,7 +8,11 @@ import cv2
 
 #Any moveTo cords are specifically used for my montior resolution which is 2560 x 1440
 #FOR THE TIME OSU MUST HAVE THE SETTING FULL SCREEN MODE ON
-#Last Ran on Date: 12/24/2024
+
+#Last Ran on Date: 2/5/2025
+#Date of Next Run: 2/19/2025
+#Runs every two weeks
+
 #Next step: Make it so the program knows if the beatmap was unable to load and skip beatmap if so
 #Find the icon placements for msgs that contain no beatmap backgroud
 #Make it skip any map I changed the status of
@@ -95,4 +99,4 @@ def findIconWithNoBackGround():
 if __name__ == "__main__": 
     time.sleep(30)
     pyautogui.PAUSE = 0.5 #I know .5 works should test .4 
-    main(272) #paramter set manually by user, have discord open, google tab open that isnt blank, osu with date added as caterogry and osu is muted
+    main(57) #paramter set manually by user, have discord open, google tab open that isnt blank, osu with date added as caterogry and osu is muted

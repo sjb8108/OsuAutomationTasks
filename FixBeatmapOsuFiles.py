@@ -1,32 +1,50 @@
 import pyautogui
-import pydirectinput
 import time
 import pyperclip
-import numpy as np
-from skimage.metrics import structural_similarity as ssim
-import cv2
 
-fileStopper = "2225895 Caravan Palace - Lone Digger"
+fileStopper = "2225895"
+defaultBeatmapString = "https://osu.ppy.sh/beatmapsets/"
 
 def main():
     fileBeatmap = ""
     pyautogui.moveTo(550, 120)
     pyautogui.leftClick()
-    while (fileBeatmap != fileStopper):
+    while (True):
         pyautogui.press('enter')
         pyautogui.moveTo(120, 60)
         pyautogui.leftClick()
+        time.sleep(2)
         pyautogui.hotkey('ctrl', 'c')
         filePath = pyperclip.paste()
         fileArray = filePath.split("\\")
-        fileBeatmap = fileArray[len(fileArray)-1]
-        print(fileBeatmap)
-        break
-    
-def fixBeatmapFile(fileArray):
-    print()
+        fileBeatmap = fileArray[7]
+        fileBeatmap = fileBeatmap.split(" ")
+        if fileBeatmap[0] == fileStopper:
+            break
+        elif len(fileBeatmap) > 1:
+            pass
+        else:
+            fixBeatmapFile(fileBeatmap[0])
+        pyautogui.moveTo(15, 60)
+        pyautogui.leftClick()
+        pyautogui.press('down')
+        
+def fixBeatmapFile(beatmapID):
+    #go to osu and delete beatmap
+    pyautogui.hotkey('ctrl', 'alt', 'tab')
+    #wait and see how many presses to get to web
+    pyautogui.hotkey('ctrl', 't')
+    beatmapURL = defaultBeatmapString + str(beatmapID)
+    pyautogui.typewrite(beatmapURL)
+    pyautogui.press('enter')
+    pyautogui.moveTo(900, 605)
+    time.sleep(5)
+    pyautogui.hotkey('ctrl', 'w')
+    pyautogui.hotkey('ctrl', 'alt', 'tab')
+    time.sleep(10)
+    #wait and see how many presses to get to file explorer
 
 if __name__ == "__main__": 
-    time.sleep(5)
-    pyautogui.PAUSE = 0.4 #I know .5 works
+    time.sleep(30)
+    pyautogui.PAUSE = 0.5
     main()

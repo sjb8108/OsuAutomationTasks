@@ -9,6 +9,7 @@ import time
 #Currently at The Evangelist in Need to Play
 #Fully Ran on Date: 12/24/2024
 #Should Run Next on Date: 04/01/2025
+#Goal: Combine MovePendingAndDeletedBeatmaps.py into here
 
 def main(numberOfMapsToProcess):
     time.sleep(3) #Time for me to put cursour on osu
