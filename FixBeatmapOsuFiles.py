@@ -5,6 +5,10 @@ import pyperclip
 
 #Any moveTo cords are specifically used for my montior resolution which is 2560 x 1440
 #Have it so tabs start with file explorer, then google chrome from left to right
+#Last Ran on Date: 
+#Date of Next Run: 
+#Run every 2 months
+
 
 fileStopper = "2225895 "
 defaultBeatmapString = "https://osu.ppy.sh/beatmapsets/"
@@ -38,7 +42,6 @@ def main():
             pyautogui.hotkey('ctrl', 'alt', 'tab')
             pyautogui.press('enter')
             fixBeatmapFile(fileBeatmap[0])
-        loopcounter+=1
         
         
 def fixBeatmapFile(beatmapID):
