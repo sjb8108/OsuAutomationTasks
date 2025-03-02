@@ -1,5 +1,4 @@
 import pyautogui
-import pydirectinput
 import time
 import pyperclip
 import numpy as np
@@ -9,8 +8,8 @@ import cv2
 #Any moveTo cords are specifically used for my montior resolution which is 2560 x 1440
 #FOR THE TIME OSU MUST HAVE THE SETTING FULL SCREEN MODE ON
 
-#Last Ran on Date: 2/5/2025
-#Date of Next Run: 2/19/2025
+#Last Ran on Date: 2/19/2025
+#Date of Next Run: 3/5/2025
 #Runs every two weeks
 
 #Next step: Make it so the program knows if the beatmap was unable to load and skip beatmap if so
@@ -98,5 +97,5 @@ def findIconWithNoBackGround():
     
 if __name__ == "__main__": 
     time.sleep(30)
-    pyautogui.PAUSE = 0.5 #I know .5 works should test .4 
-    main(57) #paramter set manually by user, have discord open, google tab open that isnt blank, osu with date added as caterogry and osu is muted
+    pyautogui.PAUSE = 0.5
+    main(21) #paramter set manually by user, have discord open, google tab open that isnt blank, osu with date added as caterogry and osu is muted

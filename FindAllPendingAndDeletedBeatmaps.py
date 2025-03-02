@@ -1,18 +1,18 @@
 import cv2
-import pyautogui
 import pydirectinput
 import numpy as np
 from skimage.metrics import structural_similarity as ssim
-import time
+import mss
 #Any moveTo cords are specifically used for my montior resolution which is 2560 x 1440
 #FOR THE TIME OSU MUST HAVE THE SETTING FULL SCREEN MODE OFF
-#Currently at The Evangelist in Need to Play
+#Currently at keep weaving your spider way, spider way diff
 #Fully Ran on Date: 12/24/2024
 #Should Run Next on Date: 04/01/2025
 #Goal: Combine MovePendingAndDeletedBeatmaps.py into here
 
 def main(numberOfMapsToProcess):
-    time.sleep(3) #Time for me to put cursour on osu
+    pydirectinput.PAUSE = 3
+    pydirectinput.moveTo(1000, 600)
     rankedImage = cv2.imread("Images\Ranked.png")
     lovedImage = cv2.imread("Images\Loved.png")
     pendingImage = cv2.imread("Images\Pending.png")
@@ -25,62 +25,37 @@ def main(numberOfMapsToProcess):
     qualifiedImageGray = cv2.cvtColor(qualifiedImage, cv2.COLOR_BGR2GRAY)
     while numberOfMapsToProcess > 0:
         print(numberOfMapsToProcess)
-        time.sleep(3)  #Time for beatmap to load
-        mapStatusImage = pyautogui.screenshot(region=(10,10,50,50)) #pydirectinput doesnt have screenshot making it so full screen has to be off
+        region = {"left": 10, "top": 10, "width": 50, "height": 50}
+        mapStatusImage = mss.mss().grab(region) 
         mapStatusIconImage = np.array(mapStatusImage)
         mapStatusImageGray = cv2.cvtColor(mapStatusIconImage, cv2.COLOR_BGR2GRAY)
         cv2.imwrite("captured_status.png", mapStatusImageGray)
-        differenceRankedFromStatus, _ = ssim(mapStatusImageGray, rankedImageGray, full=True)
-        differenceLovedFromStatus, _ = ssim(mapStatusImageGray, lovedImageGray, full=True)
-        differencePendingFromStatus, _ = ssim(mapStatusImageGray, pendingImageGray, full=True)
-        differenceRemovedFromStatus, _ = ssim(mapStatusImageGray, removedImageGray, full=True)
-        differenceQualifiedFromStatus, _ = ssim(mapStatusImageGray, qualifiedImageGray, full=True)
-        if (differencePendingFromStatus > differenceRankedFromStatus and 
-            differencePendingFromStatus > differenceLovedFromStatus and 
-            differencePendingFromStatus > differenceRemovedFromStatus and
-            differencePendingFromStatus > differenceQualifiedFromStatus):
+        differenceRankedFromStatus = ssim(mapStatusImageGray, rankedImageGray)
+        differenceLovedFromStatus = ssim(mapStatusImageGray, lovedImageGray)
+        differencePendingFromStatus = ssim(mapStatusImageGray, pendingImageGray)
+        differenceRemovedFromStatus = ssim(mapStatusImageGray, removedImageGray)
+        differenceQualifiedFromStatus = ssim(mapStatusImageGray, qualifiedImageGray)
+        print(differenceLovedFromStatus)
+        print(differencePendingFromStatus)
+        print(differenceQualifiedFromStatus)
+        print(differenceRankedFromStatus)
+        print(differenceRemovedFromStatus)
+        
+        if differenceLovedFromStatus != 1 and differenceRankedFromStatus != 1:
             
-            time.sleep(0.5)
+            pydirectinput.PAUSE = 0.5
             pydirectinput.moveTo(1500, 700)
-            time.sleep(0.5)
             pydirectinput.rightClick()
-            time.sleep(0.5)
             pydirectinput.moveTo(1500, 400)
-            time.sleep(0.5)
             pydirectinput.leftClick()
-            time.sleep(0.5)
             pydirectinput.moveTo(1650, 250)
-            time.sleep(0.5)
             pydirectinput.leftClick()
-            time.sleep(0.5)
             pydirectinput.moveTo(1650, 1150)
-            time.sleep(0.5)
-            pyautogui.leftClick()
-            time.sleep(0.5)
-            
-        elif (differenceRemovedFromStatus > differenceRankedFromStatus and
-            differenceRemovedFromStatus > differenceLovedFromStatus and
-            differenceRemovedFromStatus > differencePendingFromStatus and
-            differenceRemovedFromStatus > differenceQualifiedFromStatus):
-            
-            time.sleep(0.5)
-            pydirectinput.moveTo(1500, 700)
-            time.sleep(0.5)
-            pydirectinput.rightClick()
-            time.sleep(0.5)
-            pydirectinput.moveTo(1500, 400)
-            time.sleep(0.5)
             pydirectinput.leftClick()
-            time.sleep(0.5)
-            pydirectinput.moveTo(1650, 250)
-            time.sleep(0.5)
-            pydirectinput.leftClick()
-            time.sleep(0.5)
-            pydirectinput.moveTo(1650, 1150)
-            time.sleep(0.5)
-            pyautogui.leftClick()
-            time.sleep(0.5)
-        pydirectinput.press('right')
+            pydirectinput.moveTo(1600, 800)
+            pydirectinput.PAUSE = 3
+                
+        pydirectinput.press("right")
         numberOfMapsToProcess-=1
-     
-main(370)
+
+main(4000)

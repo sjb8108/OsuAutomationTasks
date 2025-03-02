@@ -11,10 +11,6 @@ import pyperclip
 #Make it so it left clicks folder and gets id instead of having it open the file location as opening file location has caused problems if 
 #it takes to long to load in
 
-
-
-
-
 fileStopper = "2225895 "
 defaultBeatmapString = "https://osu.ppy.sh/beatmapsets/"
 
