@@ -3,14 +3,16 @@ import pydirectinput
 import numpy as np
 from skimage.metrics import structural_similarity as ssim
 import mss
+import time
 #Any moveTo cords are specifically used for my montior resolution which is 2560 x 1440
 #FOR THE TIME OSU MUST HAVE THE SETTING FULL SCREEN MODE OFF
 #Currently at Kano - Walk This Way! Mapper: Settia Diff: 1234
-#Fully Ran on Date: 12/24/2024
-#Should Run Next on Date: 04/01/2025
+#Fully Ran on Date: 3/1/2025
+#Should Run Next on Date: 6/1/2025
 #Goal: Combine MovePendingAndDeletedBeatmaps.py into here
 
 def main(numberOfMapsToProcess):
+    time.sleep(30)
     pydirectinput.moveTo(1000, 600)
     rankedImage = cv2.imread("Images\Ranked.png")
     lovedImage = cv2.imread("Images\Loved.png")
@@ -56,4 +58,4 @@ def main(numberOfMapsToProcess):
         numberOfMapsToProcess-=1
 
 pydirectinput.PAUSE = 1.5
-main(7400)
+main(1000)
