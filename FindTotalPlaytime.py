@@ -11,8 +11,8 @@ import math
 #Current Total osu! Playtime: 22 days (Bancho) + 41 days (Akatsuki recorded in most played beatmaps ~24k = 68%) + 19 days (Average for playtime that wasnt recorded ~11k = 31%) = ~82 days +-1 at 50% 
 
 
-client_id = 29661
-client_secret = "CwzqipNRs7axuZ0C43PwEFzpe4BD3g5tyyiVqlTA"
+client_id = no_id_for_you
+client_secret = "no secret for u"
 redirect_url = "http://127.0.0.1:8080"
 client = Client.from_credentials(client_id, client_secret, redirect_url)
 
