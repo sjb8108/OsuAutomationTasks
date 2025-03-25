@@ -42,7 +42,8 @@ def main(numberOfMapsToProcess):
         print(differenceRankedFromStatus)
         print(differenceRemovedFromStatus)
         
-        if (differencePendingFromStatus > differenceLovedFromStatus and differencePendingFromStatus > differenceRankedFromStatus) or (differenceRemovedFromStatus > differenceLovedFromStatus and differenceRemovedFromStatus > differenceRankedFromStatus):
+        if (differencePendingFromStatus > differenceLovedFromStatus and differencePendingFromStatus > differenceRankedFromStatus) or (
+            differenceRemovedFromStatus > differenceLovedFromStatus and differenceRemovedFromStatus > differenceRankedFromStatus):
             
             pydirectinput.moveTo(1500, 700)
             pydirectinput.rightClick()
