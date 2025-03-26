@@ -10,11 +10,11 @@ import math
 #Current Total osu! Playtime: 22 days (Bancho) + 41 days (Akatsuki recorded in most played beatmaps ~24k = 68%) + 19 days (Average for playtime that wasnt recorded ~11k = 31%) = ~82 days +-1 at 50%
 
 BANCHO_PLAYTIME_SECONDS = 1879860
-AKATSUKI_PLAYCOUNT = 36,396
+AKATSUKI_PLAYCOUNT = 36396
 
 def main():
-    client_id = no_id_for_you
-    client_secret = "no secret for u"
+    client_id = "29661"
+    client_secret = "no_secret_id_for_you"
     redirect_url = "http://127.0.0.1:8080"
     client = osu.Client.from_credentials(client_id, client_secret, redirect_url)
 
@@ -51,9 +51,13 @@ def main():
         print("Current Map: " + beatmap['beatmap']['song_name'])
         print("Current Total Playcount: " + str(totalPlaycount))
         if playcount == 1:
-            approxPlayTimeSeconds += lengthOfMap
+            approxPlayTimeSecondsEighth += lengthOfMap
+            approxPlayTimeSecondsQuarter += lengthOfMap
+            approxPlayTimeSecondsHalf += lengthOfMap
         else:
-            approxPlayTimeSeconds += lengthOfMap
+            approxPlayTimeSecondsEighth += lengthOfMap
+            approxPlayTimeSecondsQuarter += lengthOfMap
+            approxPlayTimeSecondsHalf += lengthOfMap
             playcount-=1
             distributedLengthHalf = math.floor(lengthOfMap * 0.5)
             distributedLengthQuarter = math.floor(lengthOfMap * 0.25)
@@ -74,7 +78,7 @@ def main():
     for approxPlayTimeSeconds in approxPlayTimeList:
         nonIncludedAkatsukiPlaytime = approxPlayTimeSeconds / percentOfNonIncludedAkatsukiPlaytime
         approxPlayTimeSeconds = approxPlayTimeSeconds + nonIncludedAkatsukiPlaytime + BANCHO_PLAYTIME_SECONDS
-        print(approxTimeTitle[0])
+        print(approxTimeTitle[0]+ ": ")
         print("Approx Playtime in Seconds: " + str(approxPlayTimeSeconds))
         approxPlayTimeMinutes = approxPlayTimeSeconds / 60
         print("Approx Playtime in Minutes: " + str(approxPlayTimeMinutes))
@@ -83,6 +87,6 @@ def main():
         approxPlayTimeDays = approxPlayTimeHours / 24
         print("Approx Playtime in Days: " + str(approxPlayTimeDays))
         print("")
-        index+=0
+        index+=1
 
 main()
