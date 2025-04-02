@@ -13,7 +13,6 @@ import cv2
 #Runs every two weeks
 
 #Next step: Make it so the program knows if the beatmap was unable to load and skip beatmap if so
-#Find the icon placements for msgs that contain no beatmap backgroud
 #Make it skip any map I changed the status of
 #Maybe: Try to save time by making a beatmap not get downloaded twice
 #Make it skip beatmap i nomiated
@@ -26,6 +25,7 @@ def main(mapNumber):
         iconStdNonBackground = findIcon(1099, 989)
         if iconStdBackground is False and iconStdNonBackground is False:
             pyautogui.press('down')
+            downloadedMaps+=1
             continue
         time.sleep(2)
         pyautogui.leftClick()
@@ -75,4 +75,4 @@ def findIcon(ypos, breakypos):
 if __name__ == "__main__": 
     time.sleep(30)
     pyautogui.PAUSE = 0.5
-    main(340) #paramter set manually by user, have discord open, google tab open that isnt blank, osu with date added as caterogry and osu is muted
+    main(371) #paramter set manually by user, have discord open, google tab open that isnt blank, osu with date added as caterogry and osu is muted
