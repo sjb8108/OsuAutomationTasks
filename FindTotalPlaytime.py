@@ -14,7 +14,7 @@ AKATSUKI_PLAYCOUNT = 36396
 
 def main():
     client_id = "29661"
-    client_secret = "no_secret_id_for_you"
+    client_secret = "no_id_for_u"
     redirect_url = "http://127.0.0.1:8080"
     client = osu.Client.from_credentials(client_id, client_secret, redirect_url)
 
