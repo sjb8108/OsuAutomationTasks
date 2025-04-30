@@ -4,8 +4,8 @@ import pyperclip
 
 #Any moveTo cords are specifically used for my montior resolution which is 2560 x 1440
 #Have it so tabs start with file explorer, then google chrome from left to right, osu must still be open but the first two tabs are file and chrome
-#Last Ran on Date: 03/19/2025
-#Date of Next Run: 04/19/2025
+#Last Ran on Date: 04/25/2025
+#Date of Next Run: 05/25/2025
 #Run every month
 
 #Make it so it left clicks folder and gets id instead of having it open the file location as opening file location has caused problems if 

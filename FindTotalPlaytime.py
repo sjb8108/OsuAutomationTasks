@@ -2,6 +2,7 @@ import osu
 import time
 import requests
 import math
+import key
 
 #Run every 6 months
 #Last Run: 3/11/2025
@@ -13,8 +14,8 @@ BANCHO_PLAYTIME_SECONDS = 1879860
 AKATSUKI_PLAYCOUNT = 36396
 
 def main():
-    client_id = "29661"
-    client_secret = "no_id_for_u"
+    client_id = key.API_ID
+    client_secret = key.API_KEY
     redirect_url = "http://127.0.0.1:8080"
     client = osu.Client.from_credentials(client_id, client_secret, redirect_url)
 
