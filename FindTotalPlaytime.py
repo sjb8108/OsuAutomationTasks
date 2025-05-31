@@ -10,10 +10,11 @@ import key
 #Current Total osu! Playtime: 22 days (Bancho) + 33 days (Akatsuki recorded in most played beatmaps ~24k = 68%) + 16 days (Average for playtime that wasnt recorded ~11k = 31%) = ~71 days +-1 at 25%
 #Current Total osu! Playtime: 22 days (Bancho) + 41 days (Akatsuki recorded in most played beatmaps ~24k = 68%) + 19 days (Average for playtime that wasnt recorded ~11k = 31%) = ~82 days +-1 at 50%
 
-BANCHO_PLAYTIME_SECONDS = 1879860
-AKATSUKI_PLAYCOUNT = 36396
+BANCHO_PLAYTIME_SECONDS = 1879860 #add api call
+AKATSUKI_PLAYCOUNT = 38291 #add api call
 
 def main():
+    
     client_id = key.API_ID
     client_secret = key.API_KEY
     redirect_url = "http://127.0.0.1:8080"

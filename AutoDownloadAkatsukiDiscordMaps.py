@@ -8,8 +8,8 @@ import cv2
 #Any moveTo cords are specifically used for my montior resolution which is 2560 x 1440
 #FOR THE TIME OSU MUST HAVE THE SETTING FULL SCREEN MODE ON
 
-#Last Ran on Date: 4/16/2025
-#Date of Next Run: 4/30/2025
+#Last Ran on Date: 5/28/2025
+#Date of Next Run: 6/11/2025
 #Runs every two weeks
 
 #Next step: Make it so the program knows if the beatmap was unable to load and skip beatmap if so
@@ -20,12 +20,12 @@ def main(mapNumber):
     downloadNumberOfMaps = mapNumber
     downloadedMaps = 0
     while downloadedMaps < downloadNumberOfMaps:
-        print("Downloaded Maps: " + str(downloadedMaps))
         iconStdBackground = findIcon(972, 862)
         iconStdNonBackground = findIcon(1099, 989)
         if iconStdBackground is False and iconStdNonBackground is False:
             pyautogui.press('down')
             downloadedMaps+=1
+            print("Downloaded Maps: " + str(downloadedMaps))
             continue
         time.sleep(2)
         pyautogui.leftClick()
@@ -37,6 +37,7 @@ def main(mapNumber):
         pyautogui.press('up')
         pyautogui.press('down')
         downloadedMaps+=1
+        print("Downloaded Maps: " + str(downloadedMaps))
     
 def downloadBeatmapTracker():
     url = getURL()
@@ -75,4 +76,4 @@ def findIcon(ypos, breakypos):
 if __name__ == "__main__": 
     time.sleep(30)
     pyautogui.PAUSE = 0.5
-    main(79) #paramter set manually by user, have discord open, google tab open that isnt blank, osu with date added as caterogry and osu is muted
+    main(450) #paramter set manually by user, have discord open, google tab open that isnt blank, osu with date added as caterogry and osu is muted

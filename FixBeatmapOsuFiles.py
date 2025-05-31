@@ -4,29 +4,31 @@ import pyperclip
 
 #Any moveTo cords are specifically used for my montior resolution which is 2560 x 1440
 #Have it so tabs start with file explorer, then google chrome from left to right, osu must still be open but the first two tabs are file and chrome
-#Last Ran on Date: 04/25/2025
-#Date of Next Run: 05/25/2025
+#Last Ran on Date: 05/27/2025
+#Date of Next Run: 06/27/2025
 #Run every month
 
-#Make it so it left clicks folder and gets id instead of having it open the file location as opening file location has caused problems if 
-#it takes to long to load in
+#Just need to account for deleted beatmaps/page missing on bancho
 
-fileStopper = "2239324"
+fileStopper = "2027968 "
 defaultBeatmapString = "https://osu.ppy.sh/beatmapsets/"
 
 def main():
     fileBeatmap = ""
     y_cord = 120
-    pyautogui.moveTo(550, 120)
-    pyautogui.leftClick()
     while (True):
         if y_cord > 1360:
-            y_cord = 1365 #this will need to be changed
+            y_cord = 120
+            pyautogui.press('down', presses=61)
+            pyautogui.moveTo(550, y_cord)
+            pyautogui.leftClick()
+            pyautogui.press('up')
+            time.sleep(2)
         pyautogui.moveTo(550, y_cord)
         pyautogui.leftClick()
         pyautogui.hotkey('alt', 'enter')
-        loc = pyautogui.locateOnScreen("Images\\fileNameFinder.png")
-        pyautogui.moveTo(loc[0]+20, loc[1]-30)
+        locFile = pyautogui.locateOnScreen("Images\\fileNameFinder.png")
+        pyautogui.moveTo(locFile[0]+20, locFile[1]-30)
         pyautogui.leftClick()
         pyautogui.hotkey('ctrl', 'a')
         pyautogui.hotkey('ctrl', 'c')
@@ -49,15 +51,44 @@ def fixBeatmapFile(beatmapID):
     beatmapURL = defaultBeatmapString + beatmapID
     pyautogui.typewrite(beatmapURL)
     pyautogui.press('enter')
-    #maybe want to wait another 0.5 seconds just for the url to load
-    pyautogui.moveTo(900, 605) #should have it find the download button instead of going to a cordinate of it
+    websiteLoad = 0
+    while websiteLoad < 120:
+        pixel = pyautogui.pixel(200,200)
+        if pixel == (31, 41, 46):
+            break
+        else:
+            websiteLoad+=1
+        time.sleep(.25)
+    time.sleep(.25)
+    if websiteLoad == 120:
+        raise pyautogui.PyAutoGUIException #website loaded to slow
+    try:
+        locDownload = pyautogui.locateCenterOnScreen("Images\\Download.png")
+    except pyautogui.ImageNotFoundException: #means the beatmap has video
+        try:
+            locDownload = pyautogui.locateCenterOnScreen("images\\downloadVideo.png")
+        except:
+            raise pyautogui.ImageNotFoundException #means it couldnt find beatmap download button, should never happen
+    pyautogui.moveTo(locDownload[0], locDownload[1])
     pyautogui.leftClick()
-    time.sleep(5) #time to download beatmap
+    errorCountDownload = 0
+    while errorCountDownload < 480: #two minutes to load beatmap
+        try:
+            locComplete = pyautogui.locateCenterOnScreen("Images\\downloadComplete.png")
+            break
+        except:
+            errorCountDownload+=1
+        time.sleep(.25)
+    if errorCountDownload == 480:
+        raise pyautogui.PyAutoGUIException #wifi is really slow
+    pyautogui.moveTo(locComplete[0], locComplete[1])
+    pyautogui.leftClick()
+    pyautogui.leftClick()
     pyautogui.hotkey('ctrl', 'w')
     pyautogui.hotkey('ctrl', 'alt', 'tab')
     pyautogui.press('enter')
 
 if __name__ == "__main__":
-    time.sleep(30)
+    time.sleep(10)
     pyautogui.PAUSE = 0.5
     main()

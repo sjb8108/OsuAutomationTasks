@@ -40,6 +40,7 @@ def main():
         pyautogui.press('enter')
         pydirectinput.leftClick()
         pydirectinput.press('right')
+    #add print statements
         
 if __name__ == "__main__":
     pydirectinput.PAUSE = 1
