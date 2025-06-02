@@ -25,4 +25,4 @@ def main(NumberOfBeatmaps):
         NumberOfBeatmaps-=1
    
 pydirectinput.PAUSE = 0.25     
-main(262)
+main(13)

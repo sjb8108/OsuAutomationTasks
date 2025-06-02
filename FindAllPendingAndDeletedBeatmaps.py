@@ -1,8 +1,5 @@
-import cv2
 import pydirectinput
-import numpy as np
-from skimage.metrics import structural_similarity as ssim
-import mss
+import pyautogui
 import time
 #Any moveTo cords are specifically used for my montior resolution which is 2560 x 1440
 #FOR THE TIME OSU MUST HAVE THE SETTING FULL SCREEN MODE OFF
@@ -12,51 +9,48 @@ import time
 #Goal: Combine MovePendingAndDeletedBeatmaps.py into here
 
 def main(numberOfMapsToProcess):
-    time.sleep(30)
     pydirectinput.moveTo(1000, 600)
-    rankedImage = cv2.imread("Images\Ranked.png")
-    lovedImage = cv2.imread("Images\Loved.png")
-    pendingImage = cv2.imread("Images\Pending.png")
-    removedImage = cv2.imread("Images\Removed.png")
-    qualifiedImage = cv2.imread("Images\Qualified.png")
-    rankedImageGray = cv2.cvtColor(rankedImage, cv2.COLOR_BGR2GRAY)
-    lovedImageGray = cv2.cvtColor(lovedImage, cv2.COLOR_BGR2GRAY)
-    pendingImageGray = cv2.cvtColor(pendingImage, cv2.COLOR_BGR2GRAY)
-    removedImageGray = cv2.cvtColor(removedImage, cv2.COLOR_BGR2GRAY)
-    qualifiedImageGray = cv2.cvtColor(qualifiedImage, cv2.COLOR_BGR2GRAY)
     while numberOfMapsToProcess > 0:
-        print(numberOfMapsToProcess)
-        region = {"left": 10, "top": 10, "width": 50, "height": 50}
-        mapStatusImage = mss.mss().grab(region) 
-        mapStatusIconImage = np.array(mapStatusImage)
-        mapStatusImageGray = cv2.cvtColor(mapStatusIconImage, cv2.COLOR_BGR2GRAY)
-        cv2.imwrite("Images\captured_status.png", mapStatusImageGray)
-        differenceRankedFromStatus = ssim(mapStatusImageGray, rankedImageGray)
-        differenceLovedFromStatus = ssim(mapStatusImageGray, lovedImageGray)
-        differencePendingFromStatus = ssim(mapStatusImageGray, pendingImageGray)
-        differenceRemovedFromStatus = ssim(mapStatusImageGray, removedImageGray)
-        differenceQualifiedFromStatus = ssim(mapStatusImageGray, qualifiedImageGray)
-        print(differenceLovedFromStatus)
-        print(differencePendingFromStatus)
-        print(differenceQualifiedFromStatus)
-        print(differenceRankedFromStatus)
-        print(differenceRemovedFromStatus)
-        
-        if (differencePendingFromStatus > differenceLovedFromStatus and differencePendingFromStatus > differenceRankedFromStatus) or (
-            differenceRemovedFromStatus > differenceLovedFromStatus and differenceRemovedFromStatus > differenceRankedFromStatus):
-            
-            pydirectinput.moveTo(1500, 700)
-            pydirectinput.rightClick()
-            pydirectinput.moveTo(1500, 400)
-            pydirectinput.leftClick()
-            pydirectinput.moveTo(1650, 250)
-            pydirectinput.leftClick()
-            pydirectinput.moveTo(1650, 1150)
-            pydirectinput.leftClick()
-            pydirectinput.moveTo(1600, 800)
+        print("Maps left to process: "+ str(numberOfMapsToProcess))
+        timeSpent = 0
+        while timeSpent < 2:
+            pixel = pyautogui.pixel(35,35)
+            if pixel == (252, 252, 252) or pixel == (255, 255, 255):
+                pydirectinput.moveTo(1500, 700)
+                pydirectinput.rightClick()
+                pydirectinput.moveTo(1500, 400)
+                pydirectinput.leftClick()
+                pydirectinput.moveTo(1650, 250)
+                pydirectinput.leftClick()
+                pydirectinput.moveTo(1650, 1150)
+                pydirectinput.leftClick()
+                pydirectinput.moveTo(1600, 800)
+                break
+            else:
+                try:
+                    pyautogui.locateCenterOnScreen("Images\\RemovedV2.png")
+                    pydirectinput.moveTo(1500, 700)
+                    pydirectinput.rightClick()
+                    pydirectinput.moveTo(1500, 400)
+                    pydirectinput.leftClick()
+                    pydirectinput.moveTo(1650, 250)
+                    pydirectinput.leftClick()
+                    pydirectinput.moveTo(1650, 1150)
+                    pydirectinput.leftClick()
+                    pydirectinput.moveTo(1600, 800)
+                    break
+                except pyautogui.ImageNotFoundException:
+                    pydirectinput.moveTo(300, 250)
+                    pydirectinput.leftClick()
+                    pydirectinput.moveTo(300, 400)
+                    pydirectinput.leftClick()
+                    time.sleep(1)
+                    timeSpent+=1
                 
         pydirectinput.press("right")
         numberOfMapsToProcess-=1
 
-pydirectinput.PAUSE = 1.5
-main(1000)
+if __name__ == "__main__":
+    time.sleep(3)
+    pydirectinput.PAUSE = .5
+    main(2000)
