@@ -10,8 +10,8 @@ import key
 #Current Total osu! Playtime: 22 days (Bancho) + 33 days (Akatsuki recorded in most played beatmaps ~24k = 68%) + 16 days (Average for playtime that wasnt recorded ~11k = 31%) = ~71 days +-1 at 25%
 #Current Total osu! Playtime: 22 days (Bancho) + 41 days (Akatsuki recorded in most played beatmaps ~24k = 68%) + 19 days (Average for playtime that wasnt recorded ~11k = 31%) = ~82 days +-1 at 50%
 
-BANCHO_PLAYTIME_SECONDS = 1879860 #add api call
-AKATSUKI_PLAYCOUNT = 38291 #add api call
+BANCHO_PLAYTIME_SECONDS = 1882980 #add api call
+AKATSUKI_PLAYCOUNT = 38869 #add api call
 
 def main():
     
@@ -36,7 +36,6 @@ def main():
     approxPlayTimeSecondsEighth = 0
     approxPlayTimeSecondsQuarter = 0
     approxPlayTimeSecondsHalf = 0
-    approxPlayTimeList = [approxPlayTimeSecondsHalf, approxPlayTimeSecondsQuarter, approxPlayTimeSecondsEighth]
     approxTimeTitle = ["Half", "Quarter", "Eighth"]
     totalPlaycount = 0
     for index in range(0, len(entireMapList)):
@@ -75,12 +74,14 @@ def main():
         print("Current Playtime (Eighth): " + str(approxPlayTimeSecondsEighth))
         time.sleep(1)
 
-    percentOfNonIncludedAkatsukiPlaytime = totalPlaycount / AKATSUKI_PLAYCOUNT
+    approxPlayTimeList = [approxPlayTimeSecondsHalf, approxPlayTimeSecondsQuarter, approxPlayTimeSecondsEighth]
+    percentOfNonIncludedAkatsukiPlaytime = (AKATSUKI_PLAYCOUNT - totalPlaycount) / totalPlaycount
+    print("This is the percentage of playcount that isnt directly calculated: " + str(percentOfNonIncludedAkatsukiPlaytime))
     index = 0
     for approxPlayTimeSeconds in approxPlayTimeList:
-        nonIncludedAkatsukiPlaytime = approxPlayTimeSeconds / percentOfNonIncludedAkatsukiPlaytime
+        nonIncludedAkatsukiPlaytime = approxPlayTimeSeconds * percentOfNonIncludedAkatsukiPlaytime 
         approxPlayTimeSeconds = approxPlayTimeSeconds + nonIncludedAkatsukiPlaytime + BANCHO_PLAYTIME_SECONDS
-        print(approxTimeTitle[0]+ ": ")
+        print(approxTimeTitle[index]+ ": ")
         print("Approx Playtime in Seconds: " + str(approxPlayTimeSeconds))
         approxPlayTimeMinutes = approxPlayTimeSeconds / 60
         print("Approx Playtime in Minutes: " + str(approxPlayTimeMinutes))
