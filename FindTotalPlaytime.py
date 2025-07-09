@@ -5,16 +5,14 @@ import math
 import key
 
 #Run every 6 months
-#Last Run: 3/11/2025
-#Next Run: 6/1/2025
-#Current Total osu! Playtime: 22 days (Bancho) + 33 days (Akatsuki recorded in most played beatmaps ~24k = 68%) + 16 days (Average for playtime that wasnt recorded ~11k = 31%) = ~71 days +-1 at 25%
-#Current Total osu! Playtime: 22 days (Bancho) + 41 days (Akatsuki recorded in most played beatmaps ~24k = 68%) + 19 days (Average for playtime that wasnt recorded ~11k = 31%) = ~82 days +-1 at 50%
+#Last Run: 6/4/2025
+#Next Run: 9/1/2025
+#Current Total osu! Playtime: ~1600 hours or 66 days
 
 BANCHO_PLAYTIME_SECONDS = 1882980 #add api call
 AKATSUKI_PLAYCOUNT = 38869 #add api call
 
 def main():
-    
     client_id = key.API_ID
     client_secret = key.API_KEY
     redirect_url = "http://127.0.0.1:8080"
@@ -36,7 +34,6 @@ def main():
     approxPlayTimeSecondsEighth = 0
     approxPlayTimeSecondsQuarter = 0
     approxPlayTimeSecondsHalf = 0
-    approxTimeTitle = ["Half", "Quarter", "Eighth"]
     totalPlaycount = 0
     for index in range(0, len(entireMapList)):
         beatmap = entireMapList[index]
@@ -73,9 +70,10 @@ def main():
         print("Current Playtime (Quarter): " + str(approxPlayTimeSecondsQuarter))
         print("Current Playtime (Eighth): " + str(approxPlayTimeSecondsEighth))
         time.sleep(1)
-
+    
     approxPlayTimeList = [approxPlayTimeSecondsHalf, approxPlayTimeSecondsQuarter, approxPlayTimeSecondsEighth]
-    percentOfNonIncludedAkatsukiPlaytime = (AKATSUKI_PLAYCOUNT - totalPlaycount) / totalPlaycount
+    approxTimeTitle = ["Half", "Quarter", "Eighth"]
+    percentOfNonIncludedAkatsukiPlaytime = (AKATSUKI_PLAYCOUNT - totalPlaycount) / AKATSUKI_PLAYCOUNT
     print("This is the percentage of playcount that isnt directly calculated: " + str(percentOfNonIncludedAkatsukiPlaytime))
     index = 0
     for approxPlayTimeSeconds in approxPlayTimeList:

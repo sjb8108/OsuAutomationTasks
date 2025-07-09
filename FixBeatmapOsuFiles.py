@@ -10,7 +10,7 @@ import pyperclip
 
 #Just need to account for deleted beatmaps/page missing on bancho
 
-fileStopper = "2027968 "
+fileStopper = "1830603"
 defaultBeatmapString = "https://osu.ppy.sh/beatmapsets/"
 
 def main():
@@ -63,10 +63,10 @@ def fixBeatmapFile(beatmapID):
     if websiteLoad == 120:
         raise pyautogui.PyAutoGUIException #website loaded to slow
     try:
-        locDownload = pyautogui.locateCenterOnScreen("Images\\Download.png")
+        locDownload = pyautogui.locateCenterOnScreen("Images\\Download.png", confidence=0.95)
     except pyautogui.ImageNotFoundException: #means the beatmap has video
         try:
-            locDownload = pyautogui.locateCenterOnScreen("images\\downloadVideo.png")
+            locDownload = pyautogui.locateCenterOnScreen("images\\downloadVideo.png", confidence=0.95)
         except:
             raise pyautogui.ImageNotFoundException #means it couldnt find beatmap download button, should never happen
     pyautogui.moveTo(locDownload[0], locDownload[1])
