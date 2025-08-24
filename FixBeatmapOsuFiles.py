@@ -10,7 +10,7 @@ import pyperclip
 
 #Just need to account for deleted beatmaps/page missing on bancho
 
-fileStopper = "1257738"
+fileStopper = "2273889"
 defaultBeatmapString = "https://osu.ppy.sh/beatmapsets/"
 
 def main():
@@ -27,7 +27,7 @@ def main():
         pyautogui.moveTo(550, y_cord)
         pyautogui.leftClick()
         pyautogui.hotkey('alt', 'enter')
-        locFile = pyautogui.locateOnScreen("Images\\fileNameFinder.png")
+        locFile = pyautogui.locateOnScreen("Images\\fileNameFinder.png", confidence=0.95)
         pyautogui.moveTo(locFile[0]+20, locFile[1]-30)
         pyautogui.leftClick()
         pyautogui.hotkey('ctrl', 'a')
@@ -50,6 +50,7 @@ def main():
         
         
 def fixBeatmapFile(beatmapID):
+    deletedBeatmap = False
     pyautogui.hotkey('ctrl', 't')
     beatmapURL = defaultBeatmapString + beatmapID + " "
     pyautogui.typewrite(beatmapURL)
@@ -68,29 +69,33 @@ def fixBeatmapFile(beatmapID):
         raise pyautogui.PyAutoGUIException #website loaded to slow
     try:
         locDownload = pyautogui.locateCenterOnScreen("Images\\Download.png", confidence=0.95)
+        pyautogui.moveTo(locDownload[0], locDownload[1])
+        pyautogui.leftClick()
     except pyautogui.ImageNotFoundException: #means the beatmap has video
         try:
             locDownload = pyautogui.locateCenterOnScreen("images\\downloadVideo.png", confidence=0.95)
+            pyautogui.moveTo(locDownload[0], locDownload[1])
+            pyautogui.leftClick()
         except: 
             #means song was deleted, send to txt file to keep track of these maps
+            deletedBeatmap = True
             with open("deletedBeatmaps.txt", "a") as f:
                 f.write(str(beatmapID) + "\n")
-    pyautogui.moveTo(locDownload[0], locDownload[1])
-    pyautogui.leftClick()
-    errorCountDownload = 0
-    while errorCountDownload < 480: #two minutes to load beatmap
-        try:
-            locComplete = pyautogui.locateCenterOnScreen("Images\\downloadComplete.png")
-            break
-        except:
-            errorCountDownload+=1
-        time.sleep(.25)
-    if errorCountDownload == 480:
-        raise pyautogui.PyAutoGUIException #wifi is really slow
-    else:
-        pyautogui.moveTo(locComplete[0], locComplete[1])
-        pyautogui.leftClick()
-        pyautogui.leftClick()
+    if not deletedBeatmap:
+        errorCountDownload = 0
+        while errorCountDownload < 480: #two minutes to load beatmap
+            try:
+                locComplete = pyautogui.locateCenterOnScreen("Images\\downloadComplete.png")
+                break
+            except:
+                errorCountDownload+=1
+            time.sleep(.25)
+        if errorCountDownload == 480:
+            raise pyautogui.PyAutoGUIException #wifi is really slow
+        else:
+            pyautogui.moveTo(locComplete[0], locComplete[1])
+            pyautogui.leftClick()
+            pyautogui.leftClick()
 
 if __name__ == "__main__":
     time.sleep(10)
