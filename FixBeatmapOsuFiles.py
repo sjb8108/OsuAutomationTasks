@@ -48,13 +48,13 @@ def main():
         
 def fixBeatmapFile(beatmapID):
     pyautogui.hotkey('ctrl', 't')
-    beatmapURL = defaultBeatmapString + beatmapID
+    beatmapURL = defaultBeatmapString + beatmapID + " "
     pyautogui.typewrite(beatmapURL)
     pyautogui.press('enter')
     websiteLoad = 0
     while websiteLoad < 120:
-        pixel = pyautogui.pixel(200,200)
-        if pixel == (31, 41, 46):
+        pixel = pyautogui.pixel(1000,1000)
+        if pixel == (28, 23, 25):
             break
         else:
             websiteLoad+=1
@@ -67,28 +67,31 @@ def fixBeatmapFile(beatmapID):
     except pyautogui.ImageNotFoundException: #means the beatmap has video
         try:
             locDownload = pyautogui.locateCenterOnScreen("images\\downloadVideo.png", confidence=0.95)
-        except:
-            raise pyautogui.ImageNotFoundException #means it couldnt find beatmap download button, should never happen
-    pyautogui.moveTo(locDownload[0], locDownload[1])
-    pyautogui.leftClick()
-    errorCountDownload = 0
-    while errorCountDownload < 480: #two minutes to load beatmap
-        try:
-            locComplete = pyautogui.locateCenterOnScreen("Images\\downloadComplete.png")
-            break
-        except:
-            errorCountDownload+=1
-        time.sleep(.25)
-    if errorCountDownload == 480:
-        raise pyautogui.PyAutoGUIException #wifi is really slow
-    pyautogui.moveTo(locComplete[0], locComplete[1])
-    pyautogui.leftClick()
-    pyautogui.leftClick()
+            pyautogui.moveTo(locDownload[0], locDownload[1])
+            pyautogui.leftClick()
+            errorCountDownload = 0
+            while errorCountDownload < 480: #two minutes to load beatmap
+                try:
+                    locComplete = pyautogui.locateCenterOnScreen("Images\\downloadComplete.png")
+                    break
+                except:
+                    errorCountDownload+=1
+                time.sleep(.25)
+            if errorCountDownload == 480:
+                raise pyautogui.PyAutoGUIException #wifi is really slow
+            else:
+                pyautogui.moveTo(locComplete[0], locComplete[1])
+                pyautogui.leftClick()
+                pyautogui.leftClick()
+        except: 
+            #means song was deleted, send to txt file to keep track of these maps
+            with open("deletedBeatmaps.txt", "a") as f:
+                f.write(str(beatmapID) + "\n")
     pyautogui.hotkey('ctrl', 'w')
     pyautogui.hotkey('ctrl', 'alt', 'tab')
     pyautogui.press('enter')
 
 if __name__ == "__main__":
-    time.sleep(10)
+    time.sleep(2)
     pyautogui.PAUSE = 0.5
     main()
