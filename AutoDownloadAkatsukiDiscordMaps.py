@@ -7,8 +7,8 @@ import cv2
 #Any moveTo cords are specifically used for my montior resolution which is 2560 x 1440
 #FOR THE TIME OSU MUST HAVE THE SETTING FULL SCREEN MODE ON
 
-#Last Ran on Date: 8/6/25
-#Date of Next Run: 8/20/25
+#Last Ran on Date: 8/24/25
+#Date of Next Run: 9/7/25
 #Runs every two weeks
 
 #Next step: Make it so the program knows if the beatmap was unable to load and skip beatmap if so
@@ -24,7 +24,7 @@ def main(mapNumber):
         if iconStdBackground is False and iconStdNonBackground is False:
             pyautogui.press('down')
             downloadedMaps+=1
-            print("Downloaded Maps: " + str(downloadedMaps))
+            print("Maps left: " + str(downloadNumberOfMaps - downloadedMaps))
             continue
         time.sleep(2)
         pyautogui.leftClick()
@@ -54,18 +54,30 @@ def downloadBeatmapTracker():
         raise pyautogui.PyAutoGUIException #website loaded to slow
     try:
         locDownload = pyautogui.locateCenterOnScreen("Images\\downloadVideoAkatsuki.png", confidence=0.95)
+        pyautogui.moveTo(locDownload[0], locDownload[1])
+        pyautogui.leftClick()
     except pyautogui.ImageNotFoundException: #means the beatmap has video
         try:
             locDownload = pyautogui.locateCenterOnScreen("images\\downloadAkatsuki.png", confidence=0.95)
             pyautogui.moveTo(locDownload[0], locDownload[1])
             pyautogui.leftClick()
         except:
-            raise pyautogui.ImageNotFoundException #means download corrupted and need to press reload button
-        
+            #means download corrupted and need to press reload button
+            pass
+            
     time.sleep(1)
     
+    foundReload = False
     errorCountDownload = 0
     while errorCountDownload < 480: #two minutes to load beatmap
+        if foundReload is False:
+            try:
+                locReload = pyautogui.locateCenterOnScreen("images\\Reload.png", confidence=0.95)
+                pyautogui.moveTo(locReload[0], locReload[1])
+                pyautogui.leftClick()
+                foundReload = True
+            except:
+                pass
         try:
             locComplete = pyautogui.locateCenterOnScreen("Images\\downloadComplete.png")
             break
@@ -80,7 +92,7 @@ def downloadBeatmapTracker():
     pyautogui.hotkey('ctrl', 'w')
 
 def findIcon(ypos, breakypos):
-    XPOSITION = 465
+    XPOSITION = 464
     YPositionCurrent = ypos
     AREA = 20
     IconStdImage = cv2.imread("Images\IconStd.png")
@@ -102,4 +114,4 @@ def findIcon(ypos, breakypos):
 if __name__ == "__main__": 
     time.sleep(30)
     pyautogui.PAUSE = 0.5
-    main(123) #paramter set manually by user, have discord open, google tab open that isnt blank, osu with date added as caterogry and osu is muted
+    main(29) #paramter set manually by user, have discord open, google tab open that isnt blank, osu with date added as caterogry and osu is muted
