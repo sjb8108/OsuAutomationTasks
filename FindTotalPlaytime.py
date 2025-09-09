@@ -5,9 +5,9 @@ import math
 import key
 
 #Run every 6 months
-#Last Run: 6/4/2025
-#Next Run: 9/1/2025
-#Current Total osu! Playtime: ~1600 hours or 66 days
+#Last Run: 9/3/2025
+#Next Run: 12/1/2025
+#Current Total osu! Playtime: ~1656 hours or 69 days
 
 BANCHO_PLAYTIME_SECONDS = 1882980 #add api call
 AKATSUKI_PLAYCOUNT = 38869 #add api call

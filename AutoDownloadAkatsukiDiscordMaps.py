@@ -3,29 +3,34 @@ import time
 import numpy as np
 from skimage.metrics import structural_similarity as ssim
 import cv2
+import pyperclip
 
 #Any moveTo cords are specifically used for my montior resolution which is 2560 x 1440
-#FOR THE TIME OSU MUST HAVE THE SETTING FULL SCREEN MODE ON
+#FOR THE TIME OSU MUST HAVE THE SETTING FULL SCREEN MODE ON, discord background on Onyx color
 
-#Last Ran on Date: 8/24/25
-#Date of Next Run: 9/7/25
+#Last Ran on Date: 9/7/25
+#Date of Next Run: 9/21/25
 #Runs every two weeks
 
 #Next step: Make it so the program knows if the beatmap was unable to load and skip beatmap if so
 #Make it skip any map I changed the status of/nomiated
 #Maybe: Try to save time by making a beatmap not get downloaded twice
 
+defaultBeatmapString = "https://osu.ppy.sh/beatmapsets/"
+
 def main(mapNumber):
     downloadNumberOfMaps = mapNumber
     downloadedMaps = 0
     while downloadedMaps < downloadNumberOfMaps:
-        iconStdBackground = findIcon(972, 862)
-        iconStdNonBackground = findIcon(1099, 989)
-        if iconStdBackground is False and iconStdNonBackground is False:
+        iconStdBackground = findIcon(948, 838) 
+        iconStdNonBackground = findIcon(1075, 965) 
+        if iconStdBackground:
+            sameMap = isSameMap()
+        if (iconStdBackground is False and iconStdNonBackground is False) or sameMap:
             pyautogui.press('down')
             downloadedMaps+=1
             print("Maps left: " + str(downloadNumberOfMaps - downloadedMaps))
-            continue
+            continue 
         time.sleep(2)
         pyautogui.leftClick()
         downloadBeatmapTracker()
@@ -67,15 +72,19 @@ def downloadBeatmapTracker():
             
     time.sleep(1)
     
-    foundReload = False
+    foundAPIError = False
     errorCountDownload = 0
     while errorCountDownload < 480: #two minutes to load beatmap
-        if foundReload is False:
+        if foundAPIError is False:
             try:
-                locReload = pyautogui.locateCenterOnScreen("images\\Reload.png", confidence=0.95)
-                pyautogui.moveTo(locReload[0], locReload[1])
+                pyautogui.locateCenterOnScreen("images\\APIError.png", confidence=0.95)
+                beatmapPos = getBanchoBeatmap()
+                if beatmapPos == (0,0):
+                    locComplete = (200, 60)
+                    break
+                pyautogui.moveTo(beatmapPos[0], beatmapPos[1])
                 pyautogui.leftClick()
-                foundReload = True
+                foundAPIError = True
             except:
                 pass
         try:
@@ -91,7 +100,7 @@ def downloadBeatmapTracker():
     pyautogui.leftClick()
     pyautogui.hotkey('ctrl', 'w')
 
-def findIcon(ypos, breakypos):
+def findIcon(ypos, breakypos) -> bool:
     XPOSITION = 464
     YPositionCurrent = ypos
     AREA = 20
@@ -110,8 +119,54 @@ def findIcon(ypos, breakypos):
             return True
         else:
             YPositionCurrent-=22
+            
+def isSameMap() -> bool:
+    lastMapBackground = cv2.imread("Images\mapBackground.png")
+    lastMapBackgroundGray = cv2.cvtColor(lastMapBackground, cv2.COLOR_BGR2GRAY)
+    currentMapBackground = pyautogui.screenshot("Images\mapBackground.png", region=(467, 1110, 394, 110))
+    currentMapBackground = np.array(currentMapBackground)
+    currentMapBackgroundGray = cv2.cvtColor(currentMapBackground, cv2.COLOR_BGR2GRAY)
+    difference, _ = ssim(currentMapBackgroundGray, lastMapBackgroundGray, full=True)
+    difference = int(difference * 100)
+    if difference > 90:
+        return True
+    return False
+
+def getBanchoBeatmap() -> tuple:
+    pyautogui.moveTo(200, 60)
+    pyautogui.leftClick()
+    pyautogui.hotkey('ctrl', 'a')
+    pyautogui.hotkey('ctrl', 'c')
+    akatsukiAPIURL = pyperclip.paste()
+    akatsukiAPIURL = akatsukiAPIURL.split("/")
+    beatmapID = akatsukiAPIURL[len(akatsukiAPIURL) - 1]
+    beatmapURL = defaultBeatmapString + beatmapID + " "
+    pyautogui.typewrite(beatmapURL)
+    pyautogui.press('enter')
+    websiteLoad = 0
+    while websiteLoad < 120:
+        pixelExistBeatmap = pyautogui.pixel(200,200)
+        pixelDeletedBeatmap = pyautogui.pixel(1000,1000)
+        if pixelDeletedBeatmap == (28, 23, 25) or pixelExistBeatmap == (31, 41, 46):
+            break
+        else:
+            websiteLoad+=1
+        time.sleep(.25)
+    time.sleep(.25)
+    if websiteLoad == 120:
+        raise pyautogui.PyAutoGUIException #website loaded to slow
+    try:
+        locDownload = pyautogui.locateCenterOnScreen("Images\\Download.png", confidence=0.95)
+        return (locDownload[0], locDownload[1])
+    except pyautogui.ImageNotFoundException: #means the beatmap has video
+        try:
+            locDownload = pyautogui.locateCenterOnScreen("images\\downloadVideo.png", confidence=0.95)
+            return (locDownload[0], locDownload[1])
+        except: 
+            return (0, 0)
+        
     
 if __name__ == "__main__": 
     time.sleep(30)
     pyautogui.PAUSE = 0.5
-    main(29) #paramter set manually by user, have discord open, google tab open that isnt blank, osu with date added as caterogry and osu is muted
+    main(53) #paramter set manually by user, have discord open, google tab open that isnt blank, osu with date added as caterogry and osu is muted
