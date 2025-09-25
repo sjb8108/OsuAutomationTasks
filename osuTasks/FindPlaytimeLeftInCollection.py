@@ -3,7 +3,7 @@ import pyautogui
 import osu
 import time
 import pyperclip
-import key
+import osuTasks.key as key
 
 def main():
     client_id = key.API_ID
