@@ -22,8 +22,8 @@ def main(mapNumber):
     downloadNumberOfMaps = mapNumber
     downloadedMaps = 0
     while downloadedMaps < downloadNumberOfMaps:
-        iconStdBackground = findIcon(948, 838) 
-        iconStdNonBackground = findIcon(1075, 965) 
+        iconStdBackground = findIcon(968, 858) #adding both by 20 (948, 838)
+        iconStdNonBackground = findIcon(1095, 985) #adding both by 20
         if iconStdBackground:
             sameMap = isSameMap()
         if (iconStdBackground is False and iconStdNonBackground is False) or sameMap:
@@ -109,7 +109,7 @@ def findIcon(ypos, breakypos) -> bool:
     while True:
         if YPositionCurrent == breakypos:
             return False
-        imageLine = pyautogui.screenshot(region=(XPOSITION, YPositionCurrent, AREA, AREA))
+        imageLine = pyautogui.screenshot("Images\mode.png", region=(XPOSITION, YPositionCurrent, AREA, AREA))
         imageIconLine = np.array(imageLine)
         imageIconLineGrey = cv2.cvtColor(imageIconLine, cv2.COLOR_BGR2GRAY)
         difference, _ = ssim(imageIconLineGrey, IconStdImageGrey, full=True)
@@ -123,7 +123,7 @@ def findIcon(ypos, breakypos) -> bool:
 def isSameMap() -> bool:
     lastMapBackground = cv2.imread("Images\mapBackground.png")
     lastMapBackgroundGray = cv2.cvtColor(lastMapBackground, cv2.COLOR_BGR2GRAY)
-    currentMapBackground = pyautogui.screenshot("Images\mapBackground.png", region=(467, 1110, 394, 110))
+    currentMapBackground = pyautogui.screenshot("Images\mapBackground.png", region=(467, 1130, 394, 110))
     currentMapBackground = np.array(currentMapBackground)
     currentMapBackgroundGray = cv2.cvtColor(currentMapBackground, cv2.COLOR_BGR2GRAY)
     difference, _ = ssim(currentMapBackgroundGray, lastMapBackgroundGray, full=True)
@@ -169,4 +169,4 @@ def getBanchoBeatmap() -> tuple:
 if __name__ == "__main__": 
     time.sleep(30)
     pyautogui.PAUSE = 0.5
-    main(53) #paramter set manually by user, have discord open, google tab open that isnt blank, osu with date added as caterogry and osu is muted
+    main(100) #paramter set manually by user, have discord open, google tab open that isnt blank, osu with date added as caterogry and osu is muted
