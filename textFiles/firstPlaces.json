@@ -1584,11 +1584,6 @@
     "PP": 392.26,
     "Accuracy": 98.456
   },
-  "5042421": {
-    "Map": "Demetori - Kamisabita Kosenjou ~ Suwa Foughten Field [sstari's Extra]",
-    "PP": 387.7,
-    "Accuracy": 99.937
-  },
   "5040855": {
     "Map": "Tomoya Ohtani - Unstoppable [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]",
     "PP": 96.88,
@@ -2584,11 +2579,6 @@
     "PP": 361.87,
     "Accuracy": 97.791
   },
-  "4018770": {
-    "Map": "ke-ji - Joyeuse [lu^3's EXCEED]",
-    "PP": 442.61,
-    "Accuracy": 97.363
-  },
   "4173886": {
     "Map": "kessoku band - Guitar, Loneliness and Blue Planet (takehirotei remix) [CS 3]",
     "PP": 383.37,
@@ -2813,11 +2803,6 @@
     "Map": "Tim Haywood - BTD6 OST [bloon game 2]",
     "PP": 521.88,
     "Accuracy": 98.66
-  },
-  "5005231": {
-    "Map": "Seraph - Fragment [Regret]",
-    "PP": 511.44,
-    "Accuracy": 99.554
   },
   "939408": {
     "Map": "dBu music - Kyoumu Shuusou Kyoku ~Pandemonic Planet [Welcome to Hell]",
@@ -4961,11 +4946,6 @@
     "PP": 332.76,
     "Accuracy": 98.342
   },
-  "4938739": {
-    "Map": "Jennifer Lopez - On The Floor (Cut ver.) [Aster0id's Extra]",
-    "PP": 304.1,
-    "Accuracy": 100
-  },
   "4913339": {
     "Map": "Camellia - #1f1e33 (Another long ''#ant1p01e'' version) [#110v3yur1]",
     "PP": 280.15,
@@ -5487,11 +5467,6 @@
     "Map": "goreshit - burn this moment into the retina of my eye [trauma]",
     "PP": 407.35,
     "Accuracy": 99.927
-  },
-  "4697137": {
-    "Map": "Okazaki Taiiku - Kimi no Bouken [PIKA]",
-    "PP": 452.49,
-    "Accuracy": 99.738
   },
   "4244560": {
     "Map": "Cororo feat. Yuria Miyazono - Suiu no Inori [Luna's GRAVITY]",
@@ -7614,11 +7589,6 @@
     "Map": "Green Day - Bang Bang (Cut Ver.) [Suly's Useless Cringe Extra]",
     "PP": 87.64,
     "Accuracy": 92.671
-  },
-  "4730931": {
-    "Map": "TUYU - Anoyo-iki no Bus ni Notte Saraba. (Cut Ver.) [Sushi's Cramptax Extra]",
-    "PP": 415.05,
-    "Accuracy": 98.358
   },
   "4701260": {
     "Map": "femtanyl - KATAMARI [meowtamari]",
@@ -10987,11 +10957,6 @@
     "PP": 609.8,
     "Accuracy": 98.742
   },
-  "2680501": {
-    "Map": "cosMo@BousouP feat. Hatsune Miku - Hyper LATiON [Astronic's Extra]",
-    "PP": 503.25,
-    "Accuracy": 99.834
-  },
   "2636840": {
     "Map": "Wisp X - Lumina (feat. Xomu) [Celestial]",
     "PP": 303.66,
@@ -11911,11 +11876,6 @@
     "Map": "Yousei Teikoku - Kuusou Mesorogiwi (TV Size) [Sekai's Extra]",
     "PP": 286.37,
     "Accuracy": 99.837
-  },
-  "2921624": {
-    "Map": "Yousei Teikoku - Kuusou Mesorogiwi (TV Size) [muya-'s Expert]",
-    "PP": 237.64,
-    "Accuracy": 99.152
   },
   "3672823": {
     "Map": "Aether Realm - The Sun, The Moon, The Star [The Sun]",
@@ -13234,11 +13194,6 @@
     "PP": 266.97,
     "Accuracy": 99.729
   },
-  "3228591": {
-    "Map": "Zekk - Freefall [0pp's bread is dead Contest fix]",
-    "PP": 111.32,
-    "Accuracy": 97.014
-  },
   "2099631": {
     "Map": "lapix - Carry Me Away [Deppy's REMINISCING EXTRA]",
     "PP": 209.39,
@@ -13333,11 +13288,6 @@
     "Map": "Aitsuki Nakuru - Kyu-kurarin [My heart hangs in the air]",
     "PP": 279.52,
     "Accuracy": 97.986
-  },
-  "4031482": {
-    "Map": "Iyowa - Predation And Non Predation [Heritage]",
-    "PP": 303.97,
-    "Accuracy": 99.776
   },
   "4220065": {
     "Map": "Jerico's Law - Esoteric Mayhem [CHAOS]",
@@ -16025,11 +15975,6 @@
     "PP": 341.5,
     "Accuracy": 99.44
   },
-  "3749538": {
-    "Map": "Ooguni Kanon - Kouen no Lateral Arc [NEW'S EXPERT]",
-    "PP": 186.31,
-    "Accuracy": 99.248
-  },
   "2343246": {
     "Map": "9mm Parabellum Bullet - Sacrifice (TV Size) [Extreme Hatred]",
     "PP": 273.69,
@@ -17254,11 +17199,6 @@
     "PP": 207.95,
     "Accuracy": 98.599
   },
-  "2389746": {
-    "Map": "THE ORAL CIGARETTES - mist... [Onlybiscuit's Extreme]",
-    "PP": 307.8,
-    "Accuracy": 100
-  },
   "2447579": {
     "Map": "Himeringo - Yotsuya-san ni Yoroshiku [Milan-'s Itai Extra]",
     "PP": 157.26,
@@ -18118,5 +18058,252 @@
     "Map": "Asriel - Nights of Blood [Abyss]",
     "PP": 489.34,
     "Accuracy": 99.496
+  },
+  "1750012": {
+    "Map": "Tatsh - HEAVENLY MOON [Advanced]",
+    "PP": 224.39,
+    "Accuracy": 99.053
+  },
+  "3960582": {
+    "Map": "Camellia ChouKisouGengakutai - Subete ga Maboroshi ni Natta Ato de [FINAL]",
+    "PP": 360.38,
+    "Accuracy": 99.237
+  },
+  "3805646": {
+    "Map": "$44,000 - S. O. O. S. [Mel's GIANT DUCK]",
+    "PP": 345.92,
+    "Accuracy": 98.92
+  },
+  "4083433": {
+    "Map": "Himeringo - Idola no Circus [SMOKELIND's X]",
+    "PP": 372.27,
+    "Accuracy": 99.53
+  },
+  "307508": {
+    "Map": "Suzaku VS Genbu - Himiko [Another]",
+    "PP": 617,
+    "Accuracy": 99.426
+  },
+  "2798989": {
+    "Map": "DM Ashura - Classical Insanity [9.3]",
+    "PP": 397.15,
+    "Accuracy": 99.285
+  },
+  "3873306": {
+    "Map": "Mindless Self Indulgence - Faggot [Internalized]",
+    "PP": 353.97,
+    "Accuracy": 98.636
+  },
+  "422988": {
+    "Map": "Muryoku P - Still, [DoKo230BPM]",
+    "PP": 381.5,
+    "Accuracy": 99.287
+  },
+  "4938191": {
+    "Map": "NateWantsToBattle -- suzie - Chug Jug With You, but miku can't anymore [Extra]",
+    "PP": 418.99,
+    "Accuracy": 100
+  },
+  "4904699": {
+    "Map": "Louis cole - Blimp [Friendly Ruins (ar9)]",
+    "PP": 256.03,
+    "Accuracy": 96.764
+  },
+  "293282": {
+    "Map": "Ryu - Force of Wind [Old Extra]",
+    "PP": 418.39,
+    "Accuracy": 99.609
+  },
+  "1403767": {
+    "Map": "DJ TOTTO - chaplet [K1 AR10 HP1]",
+    "PP": 5.41,
+    "Accuracy": 88.566
+  },
+  "2042694": {
+    "Map": "Sota Fujimori - ACCELERATE [yf's Extra (#3)]",
+    "PP": 372.97,
+    "Accuracy": 99.524
+  },
+  "4350682": {
+    "Map": "Hail The Sun - Repellent [shoyeu's Expert]",
+    "PP": 401.58,
+    "Accuracy": 99.621
+  },
+  "5100251": {
+    "Map": "Sex Whales & Fraxo - Dead To Me (feat. Lox Chatterbox) (Cut Ver.) [vastly's Extra]",
+    "PP": 351.74,
+    "Accuracy": 100
+  },
+  "3666451": {
+    "Map": "SEGA  Hidenori Shoji - Banana Shrine [9]",
+    "PP": 178.21,
+    "Accuracy": 94.802
+  },
+  "4078838": {
+    "Map": "Danny Jacob, Phineas and Ferb Cast - Atlantis (TV Size) [Ultra]",
+    "PP": 337.59,
+    "Accuracy": 97.863
+  },
+  "1059265": {
+    "Map": "Yousei teikoku - kokou no sousei [extrad1881 (ar 9.5)]",
+    "PP": 229.91,
+    "Accuracy": 98.303
+  },
+  "5176492": {
+    "Map": "Sabrina Carpenter - Looking at me (sped up ver.) [Did I Catch Your Attention 1.07x]",
+    "PP": 684.91,
+    "Accuracy": 99.752
+  },
+  "4965903": {
+    "Map": "issey - Arareya Kon Kon [sever]",
+    "PP": 211.58,
+    "Accuracy": 91.924
+  },
+  "2921624": {
+    "Map": "Yousei Teikoku - Kuusou Mesorogiwi (TV Size) [muya-'s Expert]",
+    "PP": 237.64,
+    "Accuracy": 99.152
+  },
+  "4544892": {
+    "Map": "Satapan P - YABABAINA [YABAINA]",
+    "PP": 301.04,
+    "Accuracy": 97.781
+  },
+  "4541863": {
+    "Map": "Kikuo - Aishite Aishite Aishite [Multimapper Madness]",
+    "PP": 331.03,
+    "Accuracy": 96.91
+  },
+  "4866221": {
+    "Map": "-45 - Total Eclipse of The Sun [death]",
+    "PP": 258.31,
+    "Accuracy": 96.057
+  },
+  "277522": {
+    "Map": "HujuniseikouyuuP - MISTAKE [Chewu]",
+    "PP": 391.77,
+    "Accuracy": 99.84
+  },
+  "2247622": {
+    "Map": "Masayoshi Minoshima - Bad Apple!! feat. nomico [Phantasm!!]",
+    "PP": 546.12,
+    "Accuracy": 99.886
+  },
+  "3497070": {
+    "takenBy": "ChaseFox",
+    "Map": "Mrs. GREEN APPLE - Ao to Natsu (katagiri Bootleg) (Cut Ver.) [ItsCactus' Yeah]",
+    "PPDifference": 46.30000000000001,
+    "myAcc": 99.342,
+    "SniperAcc": 92.469
+  },
+  "5282995": {
+    "Map": "Aimi - MAGICAL DESTROYER [lol]",
+    "PP": 0.02,
+    "Accuracy": 80.503
+  },
+  "5167760": {
+    "Map": "yuubit - Traktor #2 [gxsty's 200 rubley mapa]",
+    "PP": 359.55,
+    "Accuracy": 98.574
+  },
+  "2063103": {
+    "Map": "Teminite & MDK - Space Invaders [Universal Slaughter]",
+    "PP": 551.28,
+    "Accuracy": 98.543
+  },
+  "4522971": {
+    "Map": "Imperial Circus Dead Decadence - Uta [[ Escape from the ordinary  MORE POWER ]]",
+    "PP": 558.52,
+    "Accuracy": 99.794
+  },
+  "5181131": {
+    "Map": "Phoneboy - Nevermind (8-Bit Ver.) [Ethel Cain's totally a farm map]",
+    "PP": 482.28,
+    "Accuracy": 98.142
+  },
+  "4561023": {
+    "Map": "Nor - FEEEEVER TIME [Peroro_Mania]",
+    "PP": 302.94,
+    "Accuracy": 97.661
+  },
+  "5074333": {
+    "Map": "My Chemical Romance - Thank You For The Venom [ending]",
+    "PP": 519.76,
+    "Accuracy": 98.649
+  },
+  "3861002": {
+    "Map": "Nog - Aether Ritual [Legit's Another]",
+    "PP": 269.07,
+    "Accuracy": 98.948
+  },
+  "2163977": {
+    "Map": "Toromaru - Shounen wa Sora wo Tadoru Prog Piano Remix [DoKo]",
+    "PP": 496.18,
+    "Accuracy": 98.192
+  },
+  "3515425": {
+    "Map": "beatMARIO(COOL&CREATE) - Night of Nights (Camellia's Once Upon a Night Remix) [remap]",
+    "PP": 379.36,
+    "Accuracy": 98.084
+  },
+  "5030534": {
+    "Map": "ELFENSJoN - Magatsu Yami ni Utau [Loli & Ducky's Collab Extra]",
+    "PP": 439.14,
+    "Accuracy": 99.928
+  },
+  "3887258": {
+    "Map": "Isekai Joucho - Replica [Milles' True Feelings]",
+    "PP": 526.26,
+    "Accuracy": 99.218
+  },
+  "4754883": {
+    "Map": "Green Day - Bang Bang (Cut Ver.) [lonq noir's Poor Song Representation]",
+    "PP": 515.73,
+    "Accuracy": 97.391
+  },
+  "5132406": {
+    "Map": "EBIMAYO - GOODRUSH [tourney ver]",
+    "PP": 470.37,
+    "Accuracy": 99.947
+  },
+  "4301969": {
+    "Map": "KAKU P-MODEL - Go for it! Halycon [Gipnoza]",
+    "PP": 455.85,
+    "Accuracy": 97.973
+  },
+  "4041838": {
+    "Map": "Tatsh - reunion [Elzix x Alvearia's Extra]",
+    "PP": 437.17,
+    "Accuracy": 99.799
+  },
+  "5177909": {
+    "Map": "Sergey Lazarev - Whitecat Jump Pack 1 [glass beach]",
+    "PP": 2,
+    "Accuracy": 86.891
+  },
+  "5021823": {
+    "Map": "femtanyl & ISSBROKIE - NASTYWERKKKK! [$#!@]",
+    "PP": 254.25,
+    "Accuracy": 96.86
+  },
+  "2152773": {
+    "Map": "LilDeuceDeuce - Witch Encounter [Dance Off!]",
+    "PP": 373.98,
+    "Accuracy": 99.099
+  },
+  "4547111": {
+    "Map": "inabakumori - Lost Umbrella (7_7 bootleg) [Expert]",
+    "PP": 343.62,
+    "Accuracy": 98.95
+  },
+  "4754580": {
+    "Map": "Camellia - LORELEI [Mir's Chrysallis]",
+    "PP": 373.39,
+    "Accuracy": 98.087
+  },
+  "4778267": {
+    "Map": "succducc - me & u [whale]",
+    "PP": 360.5,
+    "Accuracy": 99.718
   }
 }

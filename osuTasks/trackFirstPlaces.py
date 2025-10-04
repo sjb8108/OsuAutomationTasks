@@ -1,6 +1,10 @@
 import requests
 import json
 import time
+import os
+import osuTasks.key as key
+
+BASE_DIR = key.BASE_DIRECTORY
 
 def firstPlaceChange(beatmapID, songName) -> dict:
     takenFirstPlaceData = {}
@@ -51,9 +55,10 @@ def getAllFirstPlaces() -> dict:
     return CurrentFirstPlaceDict
              
 def main():
-    with open("textFiles\\firstPlaces.json") as f:
+    with open(os.path.join(BASE_DIR, "textFiles", "firstPlaces.json"), "r") as f:
         priorFirstPlaceDict = json.load(f)
-    with open("textFiles\\takenFirstPlaces.json", "r") as fl:
+
+    with open(os.path.join(BASE_DIR, "textFiles", "takenFirstPlaces.json"), "r") as fl:
         takenFirstPlaceDict = json.load(fl)
     
     currentFirstPlaceDict = getAllFirstPlaces()
@@ -88,10 +93,11 @@ def main():
             
     for beatmapID in lossNumberOnes:
         del priorFirstPlaceDict[beatmapID]
-    
-    with open("textFiles\\firstPlaces.json", "w") as f:
+        
+    with open(os.path.join(BASE_DIR, "textFiles", "firstPlaces.json"), "w") as f:
         json.dump(priorFirstPlaceDict, f, indent=2)
-    with open("textFiles\\takenFirstPlaces.json", "w") as fl:
+
+    with open(os.path.join(BASE_DIR, "textFiles", "takenFirstPlaces.json"), "w") as fl:
         json.dump(takenFirstPlaceDict, fl, indent=2)
     
 if __name__ == "__main__": 
