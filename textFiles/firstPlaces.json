@@ -1014,11 +1014,6 @@
     "PP": 500.05,
     "Accuracy": 99.795
   },
-  "5014384": {
-    "Map": "Ardolf - Tales of the Dungeon [LEGEND REBORN]",
-    "PP": 322.22,
-    "Accuracy": 99.252
-  },
   "3066445": {
     "Map": "DIGIMORTAL - Sozdatel' [Peremiriye zaversheno]",
     "PP": 462.97,
@@ -2248,11 +2243,6 @@
     "Map": "Xyris - Dystopian Exodus of the Magical Girls [indonesian btmc's Extra]",
     "PP": 159.39,
     "Accuracy": 98.382
-  },
-  "3793564": {
-    "Map": "Fuyuki Seana - OVERFLOW SKIES [Final Ascent]",
-    "PP": 308.48,
-    "Accuracy": 97.073
   },
   "4815862": {
     "Map": "xi - The End of Dreams [Chapter V Reality]",
@@ -10327,11 +10317,6 @@
     "PP": 340.97,
     "Accuracy": 99.413
   },
-  "3953062": {
-    "Map": "taichi hiyama - IbericoButa [Gordon's Forte]",
-    "PP": 183.87,
-    "Accuracy": 98.677
-  },
   "1856039": {
     "Map": "August Burns Red - Jingle Bells [Drummer's Extra]",
     "PP": 232.54,
@@ -10497,11 +10482,6 @@
     "PP": 249.48,
     "Accuracy": 99.049
   },
-  "4023417": {
-    "Map": "TeddyLoid - Fly Away (Ata DarkPsy Remix) (Sped Up ver.) [On The Wings Of The Wind (Sped Up ver 210BPM)]",
-    "PP": 531.39,
-    "Accuracy": 99.331
-  },
   "4277110": {
     "Map": "In Victory - Here We Stand [A Blazing Battleheart, Forged in Elysian Steel]",
     "PP": 537.93,
@@ -10571,11 +10551,6 @@
     "Map": "Frums - dropdead [future 8]",
     "PP": 172.71,
     "Accuracy": 94.415
-  },
-  "4461225": {
-    "Map": "D4vd - Here with me (Cityyy Remix) [Extreme]",
-    "PP": 233.61,
-    "Accuracy": 99.781
   },
   "1923556": {
     "Map": "Omoi - Nee William [captin's Extra]",
@@ -16075,11 +16050,6 @@
     "PP": 235.07,
     "Accuracy": 98.847
   },
-  "1271393": {
-    "Map": "-45 - Eiji Kuinbii [old 180]",
-    "PP": 154.43,
-    "Accuracy": 98.783
-  },
   "1271390": {
     "Map": "-45 - Eiji Kuinbii [180]",
     "PP": 181,
@@ -18305,5 +18275,10 @@
     "Map": "succducc - me & u [whale]",
     "PP": 360.5,
     "Accuracy": 99.718
+  },
+  "4749931": {
+    "Map": "Parry Gripp - I.M.P. Jingle (Sped Up Ver.) [Electrifying Extra]",
+    "PP": 310.31,
+    "Accuracy": 97.043
   }
 }

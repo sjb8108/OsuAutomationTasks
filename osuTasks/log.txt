@@ -310,3 +310,155 @@ Traceback (most recent call last):
   File "C:\Users\Scott\AppData\Local\Programs\Python\Python311\Lib\site-packages\requests\adapters.py", line 700, in send
     raise ConnectionError(e, request=request)
 requests.exceptions.ConnectionError: HTTPSConnectionPool(host='akatsuki.gg', port=443): Max retries exceeded with url: /api/v1/users/scores/first?mode=0&p=15&l=100&rx=1&id=81870 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001F2E4977890>: Failed to resolve 'akatsuki.gg' ([Errno 11001] getaddrinfo failed)"))
+Traceback (most recent call last):
+  File "C:\Users\Scott\Documents\OsuCoding\osuTasks\trackFirstPlaces.py", line 5, in <module>
+    import osuTasks.key as key
+ModuleNotFoundError: No module named 'osuTasks'
+Traceback (most recent call last):
+  File "C:\Users\Scott\Documents\OsuCoding\osuTasks\trackFirstPlaces.py", line 5, in <module>
+    import osuTasks.key as key
+ModuleNotFoundError: No module named 'osuTasks'
+Traceback (most recent call last):
+  File "C:\Users\Scott\Documents\OsuCoding\osuTasks\trackFirstPlaces.py", line 5, in <module>
+    import osuTasks.key as key
+ModuleNotFoundError: No module named 'osuTasks'
+Traceback (most recent call last):
+  File "C:\Users\Scott\Documents\OsuCoding\osuTasks\trackFirstPlaces.py", line 5, in <module>
+    import osuTasks.key as key
+ModuleNotFoundError: No module named 'osuTasks'
+Traceback (most recent call last):
+  File "C:\Users\Scott\Documents\OsuCoding\osuTasks\trackFirstPlaces.py", line 5, in <module>
+    import osuTasks.key as key
+ModuleNotFoundError: No module named 'osuTasks'
+Traceback (most recent call last):
+  File "C:\Users\Scott\Documents\OsuCoding\osuTasks\trackFirstPlaces.py", line 5, in <module>
+    import osuTasks.key as key
+ModuleNotFoundError: No module named 'osuTasks'
+Traceback (most recent call last):
+  File "C:\Users\Scott\Documents\OsuCoding\osuTasks\trackFirstPlaces.py", line 5, in <module>
+    import osuTasks.key as key
+ModuleNotFoundError: No module named 'osuTasks'
+Traceback (most recent call last):
+  File "C:\Users\Scott\Documents\OsuCoding\osuTasks\trackFirstPlaces.py", line 5, in <module>
+    import osuTasks.key as key
+ModuleNotFoundError: No module named 'osuTasks'
+Traceback (most recent call last):
+  File "C:\Users\Scott\Documents\OsuCoding\osuTasks\trackFirstPlaces.py", line 5, in <module>
+    import osuTasks.key as key
+ModuleNotFoundError: No module named 'osuTasks'
+Traceback (most recent call last):
+  File "C:\Users\Scott\Documents\OsuCoding\osuTasks\trackFirstPlaces.py", line 5, in <module>
+    import osuTasks.key as key
+ModuleNotFoundError: No module named 'osuTasks'
+Traceback (most recent call last):
+  File "C:\Users\Scott\Documents\OsuCoding\osuTasks\trackFirstPlaces.py", line 5, in <module>
+    import osuTasks.key as key
+ModuleNotFoundError: No module named 'osuTasks'
+Traceback (most recent call last):
+  File "C:\Users\Scott\Documents\OsuCoding\osuTasks\trackFirstPlaces.py", line 5, in <module>
+    import osuTasks.key as key
+ModuleNotFoundError: No module named 'osuTasks'
+Traceback (most recent call last):
+  File "C:\Users\Scott\Documents\OsuCoding\osuTasks\trackFirstPlaces.py", line 5, in <module>
+    import osuTasks.key as key
+ModuleNotFoundError: No module named 'osuTasks'
+Traceback (most recent call last):
+  File "C:\Users\Scott\Documents\OsuCoding\osuTasks\trackFirstPlaces.py", line 5, in <module>
+    import osuTasks.key as key
+ModuleNotFoundError: No module named 'osuTasks'
+Traceback (most recent call last):
+  File "C:\Users\Scott\Documents\OsuCoding\osuTasks\trackFirstPlaces.py", line 5, in <module>
+    import osuTasks.key as key
+ModuleNotFoundError: No module named 'osuTasks'
+Traceback (most recent call last):
+  File "C:\Users\Scott\Documents\OsuCoding\osuTasks\trackFirstPlaces.py", line 5, in <module>
+    import osuTasks.key as key
+ModuleNotFoundError: No module named 'osuTasks'
+Traceback (most recent call last):
+  File "C:\Users\Scott\Documents\OsuCoding\osuTasks\trackFirstPlaces.py", line 5, in <module>
+    import osuTasks.key as key
+ModuleNotFoundError: No module named 'osuTasks'
+Traceback (most recent call last):
+  File "C:\Users\Scott\Documents\OsuCoding\osuTasks\trackFirstPlaces.py", line 5, in <module>
+    import osuTasks.key as key
+ModuleNotFoundError: No module named 'osuTasks'
+Traceback (most recent call last):
+  File "C:\Users\Scott\Documents\OsuCoding\osuTasks\trackFirstPlaces.py", line 5, in <module>
+    import osuTasks.key as key
+ModuleNotFoundError: No module named 'osuTasks'
+Traceback (most recent call last):
+  File "C:\Users\Scott\Documents\OsuCoding\osuTasks\trackFirstPlaces.py", line 5, in <module>
+    import osuTasks.key as key
+ModuleNotFoundError: No module named 'osuTasks'
+Traceback (most recent call last):
+  File "C:\Users\Scott\Documents\OsuCoding\osuTasks\trackFirstPlaces.py", line 5, in <module>
+    import osuTasks.key as key
+ModuleNotFoundError: No module named 'osuTasks'
+Traceback (most recent call last):
+  File "C:\Users\Scott\Documents\OsuCoding\osuTasks\trackFirstPlaces.py", line 5, in <module>
+    import osuTasks.key as key
+ModuleNotFoundError: No module named 'osuTasks'
+Traceback (most recent call last):
+  File "C:\Users\Scott\Documents\OsuCoding\osuTasks\trackFirstPlaces.py", line 5, in <module>
+    import osuTasks.key as key
+ModuleNotFoundError: No module named 'osuTasks'
+Traceback (most recent call last):
+  File "C:\Users\Scott\Documents\OsuCoding\osuTasks\trackFirstPlaces.py", line 5, in <module>
+    import osuTasks.key as key
+ModuleNotFoundError: No module named 'osuTasks'
+Traceback (most recent call last):
+  File "C:\Users\Scott\Documents\OsuCoding\osuTasks\trackFirstPlaces.py", line 5, in <module>
+    import osuTasks.key as key
+ModuleNotFoundError: No module named 'osuTasks'
+Traceback (most recent call last):
+  File "C:\Users\Scott\Documents\OsuCoding\osuTasks\trackFirstPlaces.py", line 5, in <module>
+    import osuTasks.key as key
+ModuleNotFoundError: No module named 'osuTasks'
+Traceback (most recent call last):
+  File "C:\Users\Scott\Documents\OsuCoding\osuTasks\trackFirstPlaces.py", line 5, in <module>
+    import osuTasks.key as key
+ModuleNotFoundError: No module named 'osuTasks'
+Traceback (most recent call last):
+  File "C:\Users\Scott\Documents\OsuCoding\osuTasks\trackFirstPlaces.py", line 5, in <module>
+    import osuTasks.key as key
+ModuleNotFoundError: No module named 'osuTasks'
+Traceback (most recent call last):
+  File "C:\Users\Scott\Documents\OsuCoding\osuTasks\trackFirstPlaces.py", line 5, in <module>
+    import osuTasks.key as key
+ModuleNotFoundError: No module named 'osuTasks'
+Traceback (most recent call last):
+  File "C:\Users\Scott\Documents\OsuCoding\osuTasks\trackFirstPlaces.py", line 5, in <module>
+    import osuTasks.key as key
+ModuleNotFoundError: No module named 'osuTasks'
+Traceback (most recent call last):
+  File "C:\Users\Scott\Documents\OsuCoding\osuTasks\trackFirstPlaces.py", line 5, in <module>
+    import osuTasks.key as key
+ModuleNotFoundError: No module named 'osuTasks'
+Traceback (most recent call last):
+  File "C:\Users\Scott\Documents\OsuCoding\osuTasks\trackFirstPlaces.py", line 5, in <module>
+    import osuTasks.key as key
+ModuleNotFoundError: No module named 'osuTasks'
+Traceback (most recent call last):
+  File "C:\Users\Scott\Documents\OsuCoding\osuTasks\trackFirstPlaces.py", line 5, in <module>
+    import osuTasks.key as key
+ModuleNotFoundError: No module named 'osuTasks'
+Traceback (most recent call last):
+  File "C:\Users\Scott\Documents\OsuCoding\osuTasks\trackFirstPlaces.py", line 5, in <module>
+    import osuTasks.key as key
+ModuleNotFoundError: No module named 'osuTasks'
+Traceback (most recent call last):
+  File "C:\Users\Scott\Documents\OsuCoding\osuTasks\trackFirstPlaces.py", line 5, in <module>
+    import osuTasks.key as key
+ModuleNotFoundError: No module named 'osuTasks'
+Traceback (most recent call last):
+  File "C:\Users\Scott\Documents\OsuCoding\osuTasks\trackFirstPlaces.py", line 5, in <module>
+    import osuTasks.key as key
+ModuleNotFoundError: No module named 'osuTasks'
+Traceback (most recent call last):
+  File "C:\Users\Scott\Documents\OsuCoding\osuTasks\trackFirstPlaces.py", line 5, in <module>
+    import osuTasks.key as key
+ModuleNotFoundError: No module named 'osuTasks'
+Traceback (most recent call last):
+  File "C:\Users\Scott\Documents\OsuCoding\osuTasks\trackFirstPlaces.py", line 5, in <module>
+    import osuTasks.key as key
+ModuleNotFoundError: No module named 'osuTasks'

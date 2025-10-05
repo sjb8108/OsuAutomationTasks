@@ -2,7 +2,7 @@ import osu
 import time
 import requests
 import math
-import osuTasks.key as key
+import key as key
 
 #Run every 6 months
 #Last Run: 9/3/2025

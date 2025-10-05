@@ -2,7 +2,7 @@ import requests
 import json
 import time
 import os
-import osuTasks.key as key
+import key as key
 
 BASE_DIR = key.BASE_DIRECTORY
 
