@@ -12,9 +12,7 @@ import pyperclip
 #Date of Next Run: 9/21/25
 #Runs every two weeks
 
-#Next step: Make it so the program knows if the beatmap was unable to load and skip beatmap if so
 #Make it skip any map I changed the status of/nomiated
-#Maybe: Try to save time by making a beatmap not get downloaded twice
 
 defaultBeatmapString = "https://osu.ppy.sh/beatmapsets/"
 
@@ -86,7 +84,14 @@ def downloadBeatmapTracker():
                 pyautogui.leftClick()
                 foundAPIError = True
             except:
-                pass
+                try:
+                    akatBeatmapError = pyautogui.locateCenterOnScreen("images\\akatBeatmapError.png", confidence=0.95)
+                    backUpImage = cv2.imread("Images\\backupForAkatBeatmapError.png")
+                    cv2.imwrite("Images\\mapBackground.png", backUpImage)
+                    locComplete = (200, 60)
+                    break
+                except:
+                    pass
         try:
             locComplete = pyautogui.locateCenterOnScreen("Images\\downloadComplete.png")
             break
@@ -169,4 +174,4 @@ def getBanchoBeatmap() -> tuple:
 if __name__ == "__main__": 
     time.sleep(30)
     pyautogui.PAUSE = 0.5
-    main(100) #paramter set manually by user, have discord open, google tab open that isnt blank, osu with date added as caterogry and osu is muted
+    main(925) #paramter set manually by user, have discord open, google tab open that isnt blank, osu with date added as caterogry and osu is muted
