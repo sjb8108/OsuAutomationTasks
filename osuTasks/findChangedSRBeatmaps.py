@@ -16,10 +16,14 @@ def main():
     directory = os.path.join(BASE_DIR, "testOsuFiles", "2025_10_08_osu_files")
     currentIndex = 0
     lst = os.listdir(directory)
-    sortedList = sorted(lst, key=lambda x: int(x.split(".")[0]))  
+    sortedList = sorted(lst, key=lambda x: int(x.split(".")[0]))
+    resume = "18955"
     for filename in sortedList:
         print("Processing File: " + filename)
         beatmapID = filename.split(".")[0]
+        if int(resume) > int(beatmapID):
+            currentIndex += 1
+            continue
         newSRValue = client.get_beatmap(beatmapID).difficulty_rating
         beatmap = rosu_pp_py.Beatmap(path=os.path.join(directory, filename))
         oldSRValue = calc.calculate(beatmap).stars
