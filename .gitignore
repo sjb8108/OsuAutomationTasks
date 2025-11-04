@@ -10,3 +10,6 @@ osuTasks/log.txt
 osuTasks/test.py
 Images/mapBackground.png
 textFiles
+.venv
+__pycache__
+osuTasks/__pycache__
