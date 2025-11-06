@@ -3,6 +3,7 @@ import key as key
 import os
 import rosu_pp_py
 import key as key
+import pyautogui
 import time
 
 BASE_DIR = key.BASE_DIRECTORY
@@ -17,23 +18,31 @@ def main():
     currentIndex = 0
     lst = os.listdir(directory)
     sortedList = sorted(lst, key=lambda x: int(x.split(".")[0]))
-    resume = "18955"
+    resume = "1142208"
     for filename in sortedList:
-        print("Processing File: " + filename)
         beatmapID = filename.split(".")[0]
         if int(resume) > int(beatmapID):
             currentIndex += 1
             continue
-        newSRValue = client.get_beatmap(beatmapID).difficulty_rating
+        #pyautogui.moveTo(1000, 1000) comment out pyautogui lines if you use the computer while program is running
+        #pyautogui.leftClick()
+        print("Processing File: " + filename)
+        try:
+            newSRValue = client.get_beatmap(beatmapID).difficulty_rating
+        except(osu.exceptions.RequestException):
+            currentIndex += 1
+            continue
         beatmap = rosu_pp_py.Beatmap(path=os.path.join(directory, filename))
         oldSRValue = calc.calculate(beatmap).stars
         print("New SR Value: " + str(newSRValue) + " | Old SR Value: " + str(oldSRValue))
         if newSRValue > 5.99 and oldSRValue < 6.0:
-            with open(os.path.join(BASE_DIR, "textFiles", "changedSR"), "a") as myfile:
+            with open(os.path.join(BASE_DIR, "textFiles", "changedSR.txt"), "a") as myfile:
                 myfile.write(filename+"\n")  
         currentIndex += 1
         print("Current Index: " + str(currentIndex) + " / " + str(len(os.listdir(directory))))
-        time.sleep(1)
+        #pyautogui.moveTo(1000, 500)
+        #pyautogui.leftClick()
+        time.sleep(0.5) #uncomment if you leave the program unattended for long periods of time
         
 if __name__ == "__main__":
     main()
