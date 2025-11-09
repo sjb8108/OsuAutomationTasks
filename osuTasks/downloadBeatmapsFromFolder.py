@@ -7,12 +7,11 @@ BASE_DIR = key.BASE_DIRECTORY
 
 def main():
     allBeatmaps = []
-    resumeFrom = ""
     with open(os.path.join(BASE_DIR, "textFiles", "changedSR.txt"), "r") as myfile:
         for map in myfile:
             allBeatmaps.append(map)
     currentIndex = 1
-    resume = "221870"
+    resume = "444565"
     for beatmap in allBeatmaps:
         print("Downloading " + str(beatmap))
         print("Currently at index " + str(currentIndex) + " / " + str(len(allBeatmaps)))
@@ -41,6 +40,10 @@ def main():
                     pageLoad+=1
             time.sleep(.25)
         if nonStdBeatmap:
+            pyautogui.leftClick()
+            pyautogui.hotkey('ctrl', 'a')
+            pyautogui.press('backspace')
+            currentIndex+=1
             continue
         if pageError:
             raise Exception("Osu Beatmap Page Did Not Load")
