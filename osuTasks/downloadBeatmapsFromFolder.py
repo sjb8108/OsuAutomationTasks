@@ -36,6 +36,7 @@ def main():
                 try:
                     pageComplete = pyautogui.locateCenterOnScreen("Images\\banchoBeatmapError.png", confidence=0.95)
                     nonStdBeatmap = True
+                    break
                 except:
                     pageLoad+=1
             time.sleep(.25)
@@ -67,6 +68,6 @@ def main():
         currentIndex+=1
         
 if __name__ == "__main__":
-    #time.sleep(10)
+    time.sleep(10)
     pyautogui.PAUSE = 0.5
     main()
