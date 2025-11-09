@@ -19,7 +19,7 @@ def main():
     currentIndex = 0
     lst = os.listdir(directory)
     sortedList = sorted(lst, key=lambda x: int(x.split(".")[0]))
-    resume = "3454811"
+    resume = ""
     for filename in sortedList:
         beatmapID = filename.split(".")[0]
         if int(resume) > int(beatmapID):
