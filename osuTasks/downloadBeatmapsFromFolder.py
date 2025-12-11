@@ -11,7 +11,7 @@ def main():
         for map in myfile:
             allBeatmaps.append(map)
     currentIndex = 1
-    resume = "444565"
+    resume = "4920667"
     for beatmap in allBeatmaps:
         print("Downloading " + str(beatmap))
         print("Currently at index " + str(currentIndex) + " / " + str(len(allBeatmaps)))
@@ -33,7 +33,7 @@ def main():
                 break
             except:
                 try:
-                    pageComplete = pyautogui.locateCenterOnScreen("Images\\banchoBeatmapError.png", confidence=0.95)
+                    pageComplete = pyautogui.locateCenterOnScreen("Images\\banchoBeatmapError.png", confidence=0.85)
                     nonStdBeatmap = True
                     break
                 except:
@@ -47,6 +47,8 @@ def main():
             continue
         if pageError:
             raise Exception("Osu Beatmap Page Did Not Load")
+        pyautogui.moveTo(1475,515)
+        pyautogui.leftClick()
         pyautogui.moveTo(1250, 615)
         pyautogui.leftClick()
         downloadCounter = 0

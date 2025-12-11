@@ -2,6 +2,7 @@ import pydirectinput
 import time
 #FOR THE TIME OSU MUST HAVE THE SETTING FULL SCREEN MODE OFF
 #Any moveTo cords are specifically used for my montior resolution which is 2560 x 1440
+#Goal make it find which row has both/other to songstoputincollection
 
 def main(NumberOfBeatmaps):
     time.sleep(3) #Time to put cursour on osu
@@ -25,4 +26,4 @@ def main(NumberOfBeatmaps):
         NumberOfBeatmaps-=1
    
 pydirectinput.PAUSE = 0.25     
-main(13)
+main(11)

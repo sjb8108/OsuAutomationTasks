@@ -3,14 +3,16 @@ import pyautogui
 import time
 #Any moveTo cords are specifically used for my montior resolution which is 2560 x 1440
 #FOR THE TIME OSU MUST HAVE THE SETTING FULL SCREEN MODE OFF
-#Fully Ran on Date: 9/1/2025
-#Should Run Next on Date: 12/1/2025
+#Fully Ran on Date: 12/1/2025
+#Should Run Next on Date: 4/1/2027
 #Goal: Combine MovePendingAndDeletedBeatmaps.py into here
+#Currently At: commatose - glass beach [Tacet alibi.]
 
 def main(numberOfMapsToProcess):
     pydirectinput.moveTo(1000, 600)
+    numberOfMapsToProcessTotal = numberOfMapsToProcess
     while numberOfMapsToProcess > 0:
-        print("Maps left to process: "+ str(numberOfMapsToProcess))
+        print("Maps left to process: "+ str(numberOfMapsToProcess)+" / " +str(numberOfMapsToProcessTotal))
         timeSpent = 0
         while timeSpent < 2:
             pixel = pyautogui.pixel(35,35)
@@ -50,6 +52,6 @@ def main(numberOfMapsToProcess):
         numberOfMapsToProcess-=1
 
 if __name__ == "__main__":
-    time.sleep(30)
+    time.sleep(10)
     pydirectinput.PAUSE = .5
-    main(1900)
+    main(384)

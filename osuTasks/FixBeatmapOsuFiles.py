@@ -10,7 +10,7 @@ import pyperclip
 
 #Just need to account for deleted beatmaps/page missing on bancho
 
-fileStopper = "2273889"
+fileStopper = "2260210"
 defaultBeatmapString = "https://osu.ppy.sh/beatmapsets/"
 
 def main():
