@@ -11,8 +11,14 @@ def main(numOfMaps) -> None:
     while(mapsDone != numOfMaps):
         currentTime = pyautogui.screenshot("Images\\beatmapLength.png", region=(120, 75, 83, 35))
         text = pytesseract.image_to_string(currentTime)
-        minute = int(text[0:2])
-        seconds = int(text[3:5])
+        minute = text[0:2]
+        seconds = text[3:5]
+        if "O" in minute:
+            minute = minute.replace("O", "0")
+        if "O" in seconds:
+            seconds = seconds.replace("O", "0")
+        minute = int(minute)
+        seconds = int(seconds)
         totalTimeInSeconds = totalTimeInSeconds + ((minute * 60) + seconds)
         mapsDone+=1
         print("Maps Done: " + str(mapsDone) + " / " + str(numOfMaps))
@@ -31,4 +37,4 @@ def main(numOfMaps) -> None:
     print("Approx Completion of Collection in Hours: " + str(totalTimeInHours))
 if __name__ == "__main__":
     time.sleep(3)
-    main(7)
+    main(660) 
