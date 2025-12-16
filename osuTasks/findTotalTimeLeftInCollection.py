@@ -2,7 +2,6 @@ import pytesseract
 import pyautogui
 import time
 import pydirectinput
-import math
 
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
