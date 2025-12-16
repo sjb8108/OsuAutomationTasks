@@ -8,8 +8,8 @@ import pyperclip
 #Any moveTo cords are specifically used for my montior resolution which is 2560 x 1440
 #FOR THE TIME OSU MUST HAVE THE SETTING FULL SCREEN MODE ON, discord background on Onyx color
 
-#Last Ran on Date: 9/7/25
-#Date of Next Run: 9/21/25
+#Last Ran on Date: 12/14/25
+#Date of Next Run: 12/28/25
 #Runs every two weeks
 
 #Make it skip any map I changed the status of/nomiated
@@ -174,4 +174,4 @@ def getBanchoBeatmap() -> tuple:
 if __name__ == "__main__": 
     time.sleep(30)
     pyautogui.PAUSE = 0.5
-    main(700) #paramter set manually by user, have discord open, google tab open that isnt blank, osu with date added as caterogry and osu is muted
+    main(1125) #paramter set manually by user, have discord open, google tab open that isnt blank, osu with date added as caterogry and osu is muted

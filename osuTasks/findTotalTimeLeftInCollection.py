@@ -2,21 +2,22 @@ import pytesseract
 import pyautogui
 import time
 import pydirectinput
+import math
 
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
 def main(numOfMaps) -> None:
     mapsDone = 0
     totalTimeInSeconds = 0
+    mapLengthList = []
     while(mapsDone != numOfMaps):
         currentTime = pyautogui.screenshot("Images\\beatmapLength.png", region=(120, 75, 83, 35))
         text = pytesseract.image_to_string(currentTime)
+        text = text.replace(":", ".")
+        text = text.replace("O", "0")
+        mapLength = float(text)
         minute = text[0:2]
         seconds = text[3:5]
-        if "O" in minute:
-            minute = minute.replace("O", "0")
-        if "O" in seconds:
-            seconds = seconds.replace("O", "0")
         minute = int(minute)
         seconds = int(seconds)
         totalTimeInSeconds = totalTimeInSeconds + ((minute * 60) + seconds)
@@ -28,13 +29,19 @@ def main(numOfMaps) -> None:
             pydirectinput.press('down')
         else:
             pydirectinput.press('right')
+            mapLengthList.append(mapLength)
         time.sleep(.5)
-        
+    
+    mapLengthList = sorted(mapLengthList)
+    medianIndex = int(len(mapLengthList) / 2)
+    medianMapLength = mapLengthList[medianIndex]
+    medianMapLength = str(medianMapLength).replace(".", ":")
     print("Approx Completion of Collection in Seconds: " + str(totalTimeInSeconds))
     totalTimeInMinutes = totalTimeInSeconds / 60
     print("Approx Completion of Collection in Minutes: " + str(totalTimeInMinutes))
     totalTimeInHours = totalTimeInMinutes / 60
     print("Approx Completion of Collection in Hours: " + str(totalTimeInHours))
+    print("Median Map Length: " + medianMapLength)
 if __name__ == "__main__":
     time.sleep(3)
-    main(660) 
+    main(17) 
