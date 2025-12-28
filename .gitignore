@@ -5,6 +5,8 @@ key.cpython-311.pyc
 osuTasks/log.txt
 osuTasks/test.py
 Images/mapBackground.png
+Images/captured_status.png
+Images/beatmapLength.png
 textFiles
 .venv
 __pycache__
