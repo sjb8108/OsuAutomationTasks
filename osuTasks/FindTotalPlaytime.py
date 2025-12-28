@@ -6,7 +6,7 @@ import key as key
 
 #Run every 6 months
 #Last Run: 9/3/2025
-#Next Run: 12/1/2025
+#Next Run: 1/1/2026
 #Current Total osu! Playtime: ~1656 hours or 69 days
 
 BANCHO_PLAYTIME_SECONDS = 1882980 #add api call

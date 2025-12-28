@@ -4,8 +4,8 @@ import pyperclip
 
 #Any moveTo cords are specifically used for my montior resolution which is 2560 x 1440
 #Have it so tabs start with file explorer, then google chrome from left to right, osu must still be open but the first two tabs are file and chrome
-#Last Ran on Date: 8/24/2025
-#Date of Next Run: 9/24/2025
+#Last Ran on Date: 12/27/2025
+#Date of Next Run: 2/1/2026
 #Run every month
 
 #Just need to account for deleted beatmaps/page missing on bancho
@@ -27,7 +27,7 @@ def main():
         pyautogui.moveTo(550, y_cord)
         pyautogui.leftClick()
         pyautogui.hotkey('alt', 'enter')
-        locFile = pyautogui.locateOnScreen("Images\\fileNameFinder.png", confidence=0.95)
+        locFile = pyautogui.locateOnScreen("Images\\fileNameFinder.png", confidence=0.85)
         pyautogui.moveTo(locFile[0]+20, locFile[1]-30)
         pyautogui.leftClick()
         pyautogui.hotkey('ctrl', 'a')
@@ -47,8 +47,7 @@ def main():
             pyautogui.hotkey('ctrl', 'w')
             pyautogui.hotkey('ctrl', 'alt', 'tab')
             pyautogui.press('enter')
-        
-        
+           
 def fixBeatmapFile(beatmapID):
     deletedBeatmap = False
     pyautogui.hotkey('ctrl', 't')
@@ -79,7 +78,8 @@ def fixBeatmapFile(beatmapID):
         except: 
             #means song was deleted, send to txt file to keep track of these maps
             deletedBeatmap = True
-            with open("deletedBeatmaps.txt", "a") as f:
+            print(beatmapID)
+            with open("textFiles\\deletedBeatmaps.txt", "a") as f:
                 f.write(str(beatmapID) + "\n")
     if not deletedBeatmap:
         errorCountDownload = 0
@@ -100,5 +100,5 @@ def fixBeatmapFile(beatmapID):
 if __name__ == "__main__":
     time.sleep(10)
     pyautogui.PAUSE = 0.5
-    open('deletedBeatmaps.txt', 'w').close()
+    #open('textFiles\\deletedBeatmaps.txt', 'w').close() if u want to delete contents in deletedBeatmaps text files
     main()

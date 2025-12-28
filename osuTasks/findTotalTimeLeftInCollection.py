@@ -10,10 +10,9 @@ def main(numOfMaps) -> None:
     totalTimeInSeconds = 0
     mapLengthList = []
     while(mapsDone != numOfMaps):
-        currentTime = pyautogui.screenshot("Images\\beatmapLength.png", region=(120, 75, 83, 35))
+        currentTime = pyautogui.screenshot("Images\\beatmapLength.png", region=(120, 75, 82, 35))
         text = pytesseract.image_to_string(currentTime)
-        text = text.replace(":", ".")
-        text = text.replace("O", "0")
+        text = text.replace("°", ".").replace(":", ".").replace("O", "0").replace("|", "")
         mapLength = float(text)
         minute = text[0:2]
         seconds = text[3:5]
@@ -43,4 +42,4 @@ def main(numOfMaps) -> None:
     print("Median Map Length: " + medianMapLength)
 if __name__ == "__main__":
     time.sleep(3)
-    main(17) 
+    main(480) 
