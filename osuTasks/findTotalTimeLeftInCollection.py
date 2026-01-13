@@ -2,6 +2,7 @@ import pytesseract
 import pyautogui
 import time
 import pydirectinput
+import datetime
 
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
@@ -10,7 +11,7 @@ def main(numOfMaps) -> None:
     totalTimeInSeconds = 0
     mapLengthList = []
     while(mapsDone != numOfMaps):
-        currentTime = pyautogui.screenshot("Images\\beatmapLength.png", region=(120, 75, 82, 35))
+        currentTime = pyautogui.screenshot("Images\\beatmapLength.png", region=(120, 75, 81, 35))
         text = pytesseract.image_to_string(currentTime)
         text = text.replace("°", ".").replace(":", ".").replace("O", "0").replace("|", "")
         mapLength = float(text)
@@ -35,11 +36,13 @@ def main(numOfMaps) -> None:
     medianMapLength = mapLengthList[medianIndex]
     medianMapLength = str(medianMapLength).replace(".", ":")
     print("Approx Completion of Collection in Seconds: " + str(totalTimeInSeconds))
-    totalTimeInMinutes = totalTimeInSeconds / 60
-    print("Approx Completion of Collection in Minutes: " + str(totalTimeInMinutes))
-    totalTimeInHours = totalTimeInMinutes / 60
-    print("Approx Completion of Collection in Hours: " + str(totalTimeInHours))
+    totalTimeInMinutes, secondRemainder = divmod(totalTimeInSeconds, 60)
+    print("Approx Completion of Collection in Minutes:Seconds: " + str(totalTimeInMinutes) + ":" + str(secondRemainder))
+    totalTimeInHours, minuteRemainder = divmod(totalTimeInMinutes, 60)
+    print("Approx Completion of Collection in Hours:Minutes:Seconds: " + str(totalTimeInHours) + ":" + str(minuteRemainder) + ":" + str(secondRemainder))
+    meanTimeMinute, meanSecondRemainder = divmod(int(totalTimeInSeconds)/28, 60)
+    print("Approx Mean Map Length in minutes: " + str(int(meanTimeMinute)) + ":" + str(int(meanSecondRemainder)))
     print("Median Map Length: " + medianMapLength)
 if __name__ == "__main__":
     time.sleep(3)
-    main(480) 
+    main(28)

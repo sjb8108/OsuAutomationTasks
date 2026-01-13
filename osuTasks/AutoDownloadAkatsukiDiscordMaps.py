@@ -174,4 +174,4 @@ def getBanchoBeatmap() -> tuple:
 if __name__ == "__main__": 
     time.sleep(30)
     pyautogui.PAUSE = 0.5
-    main(1125) #paramter set manually by user, have discord open, google tab open that isnt blank, osu with date added as caterogry and osu is muted
+    main(663) #paramter set manually by user, have discord open, google tab open that isnt blank, osu with date added as caterogry and osu is muted
