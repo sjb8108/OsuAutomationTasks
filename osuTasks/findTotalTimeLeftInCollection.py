@@ -2,7 +2,6 @@ import pytesseract
 import pyautogui
 import time
 import pydirectinput
-import datetime
 
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
@@ -40,9 +39,9 @@ def main(numOfMaps) -> None:
     print("Approx Completion of Collection in Minutes:Seconds: " + str(totalTimeInMinutes) + ":" + str(secondRemainder))
     totalTimeInHours, minuteRemainder = divmod(totalTimeInMinutes, 60)
     print("Approx Completion of Collection in Hours:Minutes:Seconds: " + str(totalTimeInHours) + ":" + str(minuteRemainder) + ":" + str(secondRemainder))
-    meanTimeMinute, meanSecondRemainder = divmod(int(totalTimeInSeconds)/28, 60)
-    print("Approx Mean Map Length in minutes: " + str(int(meanTimeMinute)) + ":" + str(int(meanSecondRemainder)))
-    print("Median Map Length: " + medianMapLength)
+    meanTimeMinute, meanSecondRemainder = divmod(int(totalTimeInSeconds)/len(mapLengthList), 60)
+    print("Approx Mean Map Length in Minutes:Seconds: " + str(int(meanTimeMinute)) + ":" + str(int(meanSecondRemainder)))
+    print("Median Map Length in Minutes:Seconds: " + medianMapLength)
 if __name__ == "__main__":
     time.sleep(3)
-    main(28)
+    main(210)
