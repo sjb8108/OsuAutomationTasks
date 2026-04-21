@@ -4,13 +4,13 @@ import pyperclip
 
 #Any moveTo cords are specifically used for my montior resolution which is 2560 x 1440
 #Have it so tabs start with file explorer, then google chrome from left to right, osu must still be open but the first two tabs are file and chrome
-#Last Ran on Date: 12/27/2025
-#Date of Next Run: 2/1/2026
-#Run every month
+#Last Ran on Date: 3/1/2026
+#Date of Next Run: 5/1/2026
+#Run two every month
 
 #Just need to account for deleted beatmaps/page missing on bancho
 
-fileStopper = "2260210"
+fileStopper = "2424147"
 defaultBeatmapString = "https://osu.ppy.sh/beatmapsets/"
 
 def main():
@@ -98,7 +98,7 @@ def fixBeatmapFile(beatmapID):
             pyautogui.leftClick()
 
 if __name__ == "__main__":
-    time.sleep(10)
+    time.sleep(20)
     pyautogui.PAUSE = 0.5
     #open('textFiles\\deletedBeatmaps.txt', 'w').close() if u want to delete contents in deletedBeatmaps text files
     main()

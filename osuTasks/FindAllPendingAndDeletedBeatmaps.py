@@ -6,7 +6,7 @@ import time
 #Fully Ran on Date: 12/1/2025
 #Should Run Next on Date: 4/1/2027
 #Goal: Combine MovePendingAndDeletedBeatmaps.py into here
-#Currently At: commatose - glass beach [Tacet alibi.]
+#Currently At: Calamity Fortune [Cataclysm]
 
 def main(numberOfMapsToProcess):
     pydirectinput.moveTo(1000, 600)
@@ -54,4 +54,4 @@ def main(numberOfMapsToProcess):
 if __name__ == "__main__":
     time.sleep(10)
     pydirectinput.PAUSE = .5
-    main(384)
+    main(7752)

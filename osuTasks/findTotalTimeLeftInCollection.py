@@ -44,4 +44,4 @@ def main(numOfMaps) -> None:
     print("Median Map Length in Minutes:Seconds: " + medianMapLength)
 if __name__ == "__main__":
     time.sleep(3)
-    main(210)
+    main(960)

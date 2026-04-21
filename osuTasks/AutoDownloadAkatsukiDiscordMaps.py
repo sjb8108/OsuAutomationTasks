@@ -6,10 +6,10 @@ import cv2
 import pyperclip
 
 #Any moveTo cords are specifically used for my montior resolution which is 2560 x 1440
-#FOR THE TIME OSU MUST HAVE THE SETTING FULL SCREEN MODE ON, discord background on Onyx color
+#Discord background on Onyx color
 
-#Last Ran on Date: 12/14/25
-#Date of Next Run: 12/28/25
+#Last Ran on Date: 2/22/26
+#Date of Next Run: 3/8/26
 #Runs every two weeks
 
 #Make it skip any map I changed the status of/nomiated
@@ -20,8 +20,8 @@ def main(mapNumber):
     downloadNumberOfMaps = mapNumber
     downloadedMaps = 0
     while downloadedMaps < downloadNumberOfMaps:
-        iconStdBackground = findIcon(968, 858) #adding both by 20 (948, 838)
-        iconStdNonBackground = findIcon(1095, 985) #adding both by 20
+        iconStdBackground = findIcon(968, 858) 
+        iconStdNonBackground = findIcon(1095, 985) 
         if iconStdBackground:
             sameMap = isSameMap()
         if (iconStdBackground is False and iconStdNonBackground is False) or sameMap:
@@ -31,7 +31,7 @@ def main(mapNumber):
             continue 
         time.sleep(2)
         pyautogui.leftClick()
-        downloadBeatmapTracker()
+        downloadBeatmapTracker() 
         pyautogui.hotkey('ctrl', 'alt', 'tab')
         pyautogui.press('enter')
         pyautogui.moveTo(430, 5)
@@ -42,12 +42,12 @@ def main(mapNumber):
         print("Maps left: " + str(downloadNumberOfMaps - downloadedMaps))
     
 def downloadBeatmapTracker():
-    #at some point should also implement the download checker that checks to make sure the download finished for now its fine
     #should also make the lower maybe a function that can be called from a different file where the pixel loc and color are parameters
+    #make sure when cloudfare error occurs it works
     websiteLoad = 0
     while websiteLoad < 120:
         pixel = pyautogui.pixel(100,100)
-        if pixel == (53, 88, 130):
+        if pixel == (40, 31, 46):
             break
         else:
             websiteLoad+=1
@@ -174,4 +174,4 @@ def getBanchoBeatmap() -> tuple:
 if __name__ == "__main__": 
     time.sleep(30)
     pyautogui.PAUSE = 0.5
-    main(663) #paramter set manually by user, have discord open, google tab open that isnt blank, osu with date added as caterogry and osu is muted
+    main(12) #paramter set manually by user, have discord open, google tab open that isnt blank, osu with date added as caterogry and osu is muted

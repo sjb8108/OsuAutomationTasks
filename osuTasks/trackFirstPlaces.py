@@ -27,11 +27,13 @@ def firstPlaceChange(beatmapID, songName) -> dict:
                 firstPlaceData = beatmapLeaderBoardData["scores"][placement]
             elif beatmapLeaderBoard[placement]["user"]["username"] == "Scottiie":
                 myBeatmapData = beatmapLeaderBoardData["scores"][placement]
-                takenFirstPlaceData["takenBy"] = firstPlaceData["user"]["username"]
+                takenFirstPlaceData["Snipe Number"] = None
+                takenFirstPlaceData["Taken By"] = firstPlaceData["user"]["username"]
+                takenFirstPlaceData["Sniper Count"] = None
                 takenFirstPlaceData["Map"] = songName
-                takenFirstPlaceData["PPDifference"] = firstPlaceData["pp"] - myBeatmapData["pp"]
-                takenFirstPlaceData["myAcc"] = myBeatmapData["accuracy"]
-                takenFirstPlaceData["SniperAcc"] = firstPlaceData["accuracy"]
+                takenFirstPlaceData["PP Difference"] = firstPlaceData["pp"] - myBeatmapData["pp"]
+                takenFirstPlaceData["My Accuracy"] = myBeatmapData["accuracy"]
+                takenFirstPlaceData["Sniper Accuracy"] = firstPlaceData["accuracy"]
                 return takenFirstPlaceData
             
 def getAllFirstPlaces() -> dict:
@@ -53,7 +55,30 @@ def getAllFirstPlaces() -> dict:
         pageNum+=1
         time.sleep(1)
     return CurrentFirstPlaceDict
-             
+
+def fixSniperCount(takenFirstPlaceDict, sniper):
+    sniperNum = 1
+    for data in takenFirstPlaceDict:
+        if takenFirstPlaceDict[data]["Taken By"] == sniper:
+             takenFirstPlaceDict[data]["Sniper Count"] = sniperNum
+             sniperNum+=1
+    return takenFirstPlaceDict
+
+def getSniperCount(takenFirstPlaceDict, sniper, beatmapID):
+    snipeCount = 0
+    for data in takenFirstPlaceDict:
+        if takenFirstPlaceDict[data]["Taken By"] == sniper and data == str(beatmapID):
+            return snipeCount + 1
+        elif takenFirstPlaceDict[data]["Taken By"] == sniper:
+            snipeCount+=1
+            
+def fixSnipeNumber(takenFirstPlaceDict):
+    snipeNum = 1
+    for data in takenFirstPlaceDict:
+        takenFirstPlaceDict[data]["Snipe Number"] = snipeNum
+        snipeNum+=1
+    return takenFirstPlaceDict
+
 def main():
     with open(os.path.join(BASE_DIR, "textFiles", "firstPlaces.json"), "r") as f:
         priorFirstPlaceDict = json.load(f)
@@ -71,8 +96,11 @@ def main():
             priorFirstPlaceDict[beatmapID] = initalFirstPlaceData
             scoreNum+=1
         elif str(beatmapID) in takenFirstPlaceDict and str(beatmapID) not in priorFirstPlaceDict: #got my number 1 back and need to add my data back and remove from taken first place dict/list
+            sniper = takenFirstPlaceDict[str(beatmapID)]["Taken By"]
             del takenFirstPlaceDict[str(beatmapID)]
+            takenFirstPlaceDict = fixSniperCount(takenFirstPlaceDict, sniper)
             snipedBackData = firstPlaceChange(beatmapID, songName)
+            takenFirstPlaceDict = fixSnipeNumber(takenFirstPlaceDict)
             priorFirstPlaceDict[beatmapID] = snipedBackData
             scoreNum+=1
         else: #number 1 wasnt sniped, do nothing
@@ -89,7 +117,12 @@ def main():
             snipedScoreData = firstPlaceChange(beatmapID, songName)
             if snipedScoreData is None:
                 continue
+            snipedScoreData["Snipe Number"] = len(takenFirstPlaceDict) + 1
             takenFirstPlaceDict[beatmapID] = snipedScoreData
+            sniper = snipedScoreData["Taken By"]
+            snipedScoreData["Sniper Count"] = getSniperCount(takenFirstPlaceDict, sniper, beatmapID)
+            takenFirstPlaceDict[beatmapID] = snipedScoreData
+            
             
     for beatmapID in lossNumberOnes:
         del priorFirstPlaceDict[beatmapID]

@@ -20,12 +20,12 @@ def main():
 
     entireMapList = []
     pageNumber = 1
-    url = "https://akatsuki.gg/api/v1/users/most_played?id=81870&mode=0&p="+str(pageNumber)+"&l=100&rx=1"
+    url = "https://akatsuki.gg/api/v1/users/most_played?id=136583&mode=0&p="+str(pageNumber)+"&l=100&rx=1"
     mapData = requests.get(url).json()
     while (mapData['most_played_beatmaps'] != None):
         entireMapList = entireMapList + mapData['most_played_beatmaps']
         pageNumber+=1
-        url = "https://akatsuki.gg/api/v1/users/most_played?id=81870&mode=0&p="+str(pageNumber)+"&l=100&rx=1"
+        url = "https://akatsuki.gg/api/v1/users/most_played?id=136583&mode=0&p="+str(pageNumber)+"&l=100&rx=1"
         time.sleep(1)
         mapData = requests.get(url).json()
 
