@@ -9,8 +9,8 @@ import key as key
 #Next Run: 7/1/2026
 #Current Total osu! Playtime: ~1752 hours or 73 days
 
-BANCHO_PLAYTIME_SECONDS = 1882980 #add api call
-AKATSUKI_PLAYCOUNT = 38869 #add api call
+BANCHO_PLAYTIME_SECONDS = 2033940 #add api call
+AKATSUKI_PLAYCOUNT = 47530 #add api call
 
 def main():
     client_id = key.API_ID
@@ -20,12 +20,12 @@ def main():
 
     entireMapList = []
     pageNumber = 1
-    url = "https://akatsuki.gg/api/v1/users/most_played?id=136583&mode=0&p="+str(pageNumber)+"&l=100&rx=1"
+    url = "https://akatsuki.gg/api/v1/users/most_played?id=81870&mode=0&p="+str(pageNumber)+"&l=100&rx=1"
     mapData = requests.get(url).json()
     while (mapData['most_played_beatmaps'] != None):
         entireMapList = entireMapList + mapData['most_played_beatmaps']
         pageNumber+=1
-        url = "https://akatsuki.gg/api/v1/users/most_played?id=136583&mode=0&p="+str(pageNumber)+"&l=100&rx=1"
+        url = "https://akatsuki.gg/api/v1/users/most_played?id=81870&mode=0&p="+str(pageNumber)+"&l=100&rx=1"
         time.sleep(1)
         mapData = requests.get(url).json()
 

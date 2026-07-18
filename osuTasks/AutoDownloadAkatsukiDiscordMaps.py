@@ -93,7 +93,7 @@ def downloadBeatmapTracker():
                 except:
                     pass
         try:
-            locComplete = pyautogui.locateCenterOnScreen("Images\\downloadComplete.png")
+            locComplete = pyautogui.locateCenterOnScreen("Images\\downloadComplete.png", confidence=0.95)
             break
         except:
             errorCountDownload+=1
@@ -174,4 +174,4 @@ def getBanchoBeatmap() -> tuple:
 if __name__ == "__main__": 
     time.sleep(30)
     pyautogui.PAUSE = 0.5
-    main(12) #paramter set manually by user, have discord open, google tab open that isnt blank, osu with date added as caterogry and osu is muted
+    main(272) #paramter set manually by user, have discord open, google tab open that isnt blank, osu with date added as caterogry and osu is muted

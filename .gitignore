@@ -13,3 +13,4 @@ __pycache__
 osuTasks/__pycache__
 .vscode
 osuTasks/migration.py
+cache
